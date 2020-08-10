@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Collision_Manager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainApp.h" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Collision_Manager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="ObjManager.cpp" />
