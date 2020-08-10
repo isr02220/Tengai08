@@ -1,14 +1,9 @@
 #include "framework.h"
 #include "ObjManager.h"
-//#include "TransportBelt.h"
-//#include "Obj.h"
 
 CObjManager* CObjManager::m_pInstance = nullptr;
 
 CObjManager::CObjManager() {
-	//for (int i = 0; i < OBJ::END; ++i) {
-	//	vecObj[i].resize(GRIDX * GRIDY, nullptr);
-	//}
 }
 
 
