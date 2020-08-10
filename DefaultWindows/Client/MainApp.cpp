@@ -1,6 +1,7 @@
 #include "MainApp.h"
 #include "Player.h"
 #include "KeyManager.h"
+
 CMainApp::CMainApp() {
 	m_hDC = 0;
 }
