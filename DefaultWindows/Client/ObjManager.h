@@ -19,12 +19,10 @@ private:
 	CObjManager();
 	~CObjManager();
 public:
-//	CObj* GetPlayer() { return m_listObj[OBJ::PLAYER].front(); }
-//	list<CObj*>* GetList(OBJ::TYPE eID) { return &m_listObj[eID]; }
-//	vector<CObj*>* GetVector(OBJ::TYPE eID) { return &vecObj[eID]; }
-//public:
-//	void AddObject(CObj* pObj, OBJ::TYPE eID);
-//	void InsertObject(CObj* pObj, OBJ::TYPE eID);
+	CObj* GetPlayer() { return m_listObj[OBJ::PLAYER].front(); }
+	list<CObj*>* GetList(OBJ::TYPE eID) { return &m_listObj[eID]; }
+public:
+	void AddObject(CObj* pObj, OBJ::TYPE eID);
 public:
 	void Update();
 	void LateUpdate();
@@ -33,7 +31,6 @@ public:
 private:
 	static CObjManager* m_pInstance;
 private:
-	//list<CObj*> m_listObj[OBJ::END];
-	//vector<CObj*> vecObj[OBJ::END];
+	list<CObj*> m_listObj[OBJ::END];
 };
 

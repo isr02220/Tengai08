@@ -149,6 +149,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainApp.h" />
+    <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
@@ -159,6 +160,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainApp.cpp" />
+    <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjManager.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
