@@ -115,7 +115,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow) {
     hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-    RECT rc = { 0,0, WINCX, WINCY };
+    RECT rc = { 100, 100, WINCX, WINCY };
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
     HWND hWnd = CreateWindowW(szWindowClass, L"Tengai made by 김성구, 이지향", WS_OVERLAPPEDWINDOW,
         rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
