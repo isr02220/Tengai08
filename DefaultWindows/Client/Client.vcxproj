@@ -23,19 +23,19 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{9ec25349-6841-48e2-bcb4-af82a8ef3ed8}</ProjectGuid>
     <RootNamespace>Client</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -145,12 +145,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="LogoScene.h" />
     <ClInclude Include="MainApp.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjManager.h" />
     <ClInclude Include="Player.h" />
@@ -168,6 +170,7 @@
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="LogoScene.cpp" />
     <ClCompile Include="MainApp.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjManager.cpp" />
     <ClCompile Include="Player.cpp" />

@@ -1,5 +1,7 @@
 #include "StageScene.h"
 #include "Player.h"
+#include "Monster.h"
+#include "Obj.h"
 CStageScene::CStageScene() : CScene() {
 
 }
@@ -13,24 +15,20 @@ void CStageScene::Ready() {
 	// Player
 	m_pPlayer = new CPlayer();
 	m_pPlayer->Ready();
-
+	objMgr->AddObject(CAbstractFactory<CPlayer>::Create(300.f, 300.f), OBJ::PLAYER);
+	objMgr->AddObject(CAbstractFactory<CMonster>::Create(500.f, 300.f), OBJ::MONSTER);
 }
 
 void CStageScene::Update() {
-
-	m_pPlayer->Update();
+	objMgr->Update();
 }
 
 void CStageScene::LateUpdate() {
-	m_pPlayer->LateUpdate();
-
+	objMgr->LateUpdate();
 }
 
 void CStageScene::Render(HDC hDC) {
-
-	RECT rc = { 0,0, WINCX, WINCY };
-	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
-	DrawText(hDC, L"TENGAI", lstrlen(L"TENGAI"), &rc, DT_VCENTER | DT_NOCLIP);
+	objMgr->Render(hDC);
 }
 
 void CStageScene::Release() {

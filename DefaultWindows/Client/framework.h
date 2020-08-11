@@ -24,5 +24,6 @@ using namespace std;
 #include "Total.h"
 
 #include "CollisionManager.h"
+#include "AbstractFactory.h"
 #include "ObjManager.h"
 #include "KeyManager.h"

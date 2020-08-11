@@ -12,7 +12,7 @@ CObjManager::~CObjManager() {
 }
 
 void CObjManager::AddObject(CObj* pObj, OBJ::TYPE eID) {
-
+	m_listObj[eID].emplace_back(pObj);
 }
 
 void CObjManager::Update() {
@@ -51,6 +51,12 @@ void CObjManager::LateUpdate() {
 
 void CObjManager::Render(HDC hDC) {
 
+	for (int i = 0; i < OBJ::END; ++i) {
+		for (auto& pObj : m_listObj[i]) {
+			if (pObj->GetVisible())
+				pObj->Render(hDC);
+		}
+	}
 }
 
 void CObjManager::Release() {

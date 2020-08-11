@@ -3,7 +3,7 @@
 
 CScene::CScene()
 {
-	objMgr->GetInstance();
+	objMgr = objMgr->GetInstance();
 }
 
 
