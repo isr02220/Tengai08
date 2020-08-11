@@ -7,10 +7,6 @@ namespace KEY {
 		MoveRight      ,
 		MoveLeft       ,
 		MoveDown       ,
-		Inventory      ,
-		Jump           ,
-		Reload         ,
-		Action         ,
 		PrimaryAction  ,
 		SecondaryAction,
 		SHIFT          ,
@@ -21,10 +17,6 @@ namespace KEY {
 	const DWORD MoveRight       = 1 << (INT)ID::MoveRight      ;
 	const DWORD MoveLeft        = 1 << (INT)ID::MoveLeft       ;
 	const DWORD MoveDown        = 1 << (INT)ID::MoveDown       ;
-	const DWORD Inventory       = 1 << (INT)ID::Inventory      ;
-	const DWORD Jump            = 1 << (INT)ID::Jump           ;
-	const DWORD Reload          = 1 << (INT)ID::Reload         ;
-	const DWORD Action          = 1 << (INT)ID::Action         ;
 	const DWORD PrimaryAction   = 1 << (INT)ID::PrimaryAction  ;
 	const DWORD SecondaryAction = 1 << (INT)ID::SecondaryAction;
 	const DWORD SHIFT           = 1 << (INT)ID::SHIFT          ;
