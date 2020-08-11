@@ -1,4 +1,5 @@
 #pragma once
+class CObj;
 class CCollisionManager
 {
 public:
@@ -9,7 +10,7 @@ public:
 	static void CollisionSphere(list<CObj*>& rDstList, list<CObj*>& rSrcList);
 	static void CollisionRectEX(list<CObj*>& rDstList, list<CObj*>& rSrcList);
 private:
-	static bool CheckSphere(const CObj* pDstObject, const CObj& rSrcObject);
-	static bool CheckRect(const CObj* pDstObject, const CObj& rSrcObject, float* pMoveX, float* pMoveY);
+	static bool CheckSphere(CObj* pDstObject, CObj* rSrcObject);
+	static bool CheckRect(CObj* pDstObject, CObj* rSrcObject, float* pMoveX, float* pMoveY);
 };
 

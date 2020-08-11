@@ -14,14 +14,14 @@ CCollisionManager::~CCollisionManager()
 void CCollisionManager::CollisionRect(list<CObj*>& rDstList, list<CObj*>& rSrcList)
 {
 	RECT rc = {}; 
-	for (auto& rDstObject : rDstList)
+	for (auto rDstObject : rDstList)
 	{
-		for (auto& rSrcObject : rSrcList)
+		for (auto rSrcObject : rSrcList)
 		{
-			if (IntersectRect(&rc,&rDstObject->Get_Rect(), &rSrcObject->Get_Rect()))
+			if (IntersectRect(&rc, rDstObject->GetRect(), rSrcObject->GetRect()))
 			{
-				rDstObject->Set_Dead(); 
-				rSrcObject->Set_Dead(); 
+				rDstObject->OnCollision(rSrcObject);
+				rSrcObject->OnCollision(rDstObject);
 			}
 		}
 	}
@@ -33,10 +33,10 @@ void CCollisionManager::CollisionSphere(list<CObj*>& rDstList, list<CObj*>& rSrc
 	{
 		for (auto& rSrcObject : rSrcList)
 		{
-			if (CheckSphere(rDstObject, *rSrcObject))
+			if (CheckSphere(rDstObject, rSrcObject))
 			{
-				rDstObject->Set_Dead();
-				rSrcObject->Set_Dead();
+				rDstObject->OnCollision(rSrcObject);
+				rSrcObject->OnCollision(rDstObject);
 			}
 		}
 	}
@@ -46,53 +46,53 @@ void CCollisionManager::CollisionRectEX(list<CObj*>& rDstList, list<CObj*>& rSrc
 {
 	float fMoveX = 0.f, fMoveY = 0.f; 
 
-	for (auto& rDstObject : rDstList)
+	for (auto rDstObject : rDstList)
 	{
-		for (auto& rSrcObject : rSrcList)
+		for (auto rSrcObject : rSrcList)
 		{
-			if (CheckRect(rDstObject, *rSrcObject, &fMoveX, &fMoveY))
+			if (CheckRect(rDstObject, rSrcObject, &fMoveX, &fMoveY))
 			{
-				float fX = rSrcObject->Get_Info()->fX; 
-				float fY = rSrcObject->Get_Info()->fY; 
+				float fX = rSrcObject->GetPosition()->x; 
+				float fY = rSrcObject->GetPosition()->y;
 
 				if (fMoveX > fMoveY)
 				{
-					if (fY < rDstObject->Get_Info()->fY)
+					if (fY < rDstObject->GetPosition()->y)
 						fMoveY *= -1.f; 
 					
-					rSrcObject->Set_Pos(fX, fY + fMoveY); 
+					rSrcObject->SetPosition(fX, fY + fMoveY);
 				}
 				else
 				{
-					if (fX < rDstObject->Get_Info()->fX)
+					if (fX < rDstObject->GetPosition()->x)
 						fMoveX *= -1.f; 
-					rSrcObject->Set_Pos(fX + fMoveX, fY);
+					rSrcObject->SetPosition(fX + fMoveX, fY);
 				}
 			}
 		}
 	}
 }
 
-bool CCollisionManager::CheckSphere(const CObj * pDstObject, const CObj & rSrcObject)
+bool CCollisionManager::CheckSphere(CObj * pDstObject, CObj * rSrcObject)
 {
-	float fRadiusSum = static_cast<float>((pDstObject->Get_Info()->iCX >> 1) + (rSrcObject.Get_Info()->iCX >> 1));
-	float fX = pDstObject->Get_Info()->fX - rSrcObject.Get_Info()->fX; 
-	float fY = pDstObject->Get_Info()->fY - rSrcObject.Get_Info()->fY; 
+	float fRadiusSum = (pDstObject->GetInfo()->size.x / 2) + (rSrcObject->GetInfo()->size.y / 2);
+	float fX = pDstObject->GetPosition()->x - rSrcObject->GetPosition()->x;
+	float fY = pDstObject->GetPosition()->y - rSrcObject->GetPosition()->y;
 	float fDist = sqrtf(fX * fX + fY * fY); 
 
 	return fDist <fRadiusSum;
 }
 
-bool CCollisionManager::CheckRect(const CObj * pDstObject, const CObj & rSrcObject, float * pMoveX, float * pMoveY)
+bool CCollisionManager::CheckRect(CObj * pDstObject, CObj *rSrcObject, float * pMoveX, float * pMoveY)
 {
 	// 1.사각형 두개의 x축으로의 반지름의 합을 구함. 
-	float fRadiusSumX = static_cast<float>((pDstObject->Get_Info()->iCX >> 1) + (rSrcObject.Get_Info()->iCX >> 1));
+	float fRadiusSumX = (pDstObject->GetInfo()->size.x / 2) + (rSrcObject->GetInfo()->size.x / 2);
 	//2.사각형 두개의 y축으로의 반지름의 합을 구함. 
-	float fRadiusSumY = static_cast<float>((pDstObject->Get_Info()->iCY >> 1) + (rSrcObject.Get_Info()->iCY >> 1));
+	float fRadiusSumY = (pDstObject->GetInfo()->size.y / 2) + (rSrcObject->GetInfo()->size.y / 2);;
 
 	// x축과 y축의 거리 구함. 
-	float fDistX = fabs(pDstObject->Get_Info()->fX - rSrcObject.Get_Info()->fX); 
-	float fDistY = fabs(pDstObject->Get_Info()->fY - rSrcObject.Get_Info()->fY); 
+	float fDistX = fabsf(pDstObject->GetPosition()->x - rSrcObject->GetPosition()->x);
+	float fDistY = fabsf(pDstObject->GetPosition()->y - rSrcObject->GetPosition()->y);
 
 	// 구한 두개의 거리와 반지름의 합을 각각 비교. 
 	if (fDistX <= fRadiusSumX && fDistY <= fRadiusSumY)

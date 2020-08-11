@@ -31,7 +31,7 @@ public:
 	RECT* GetRect() { return &rect; }
 	INFO* GetInfo() { return &info; }
 	BOOL  GetActive() { return active; };
-	D3DXVECTOR3 GetPosition() { return info.position; }
+	D3DXVECTOR3* GetPosition() { return &info.position; }
 	OBJ::TYPE GetObjectType() { return objectType; }
 
 	void UpdateRect();

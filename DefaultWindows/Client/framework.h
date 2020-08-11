@@ -23,4 +23,4 @@ using namespace std;
 #pragma comment(lib, "d3dx9.lib")
 #include "Total.h"
 
-
+#include "CollisionManager.h"

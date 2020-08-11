@@ -18,7 +18,7 @@ void CSceneManager::ChangeScene(ID eSceneID)
 	m_eNextScene = eSceneID;
 	if (m_eCurScene != m_eNextScene)
 	{
-		Safe_Delete(m_pScene); 
+		SafeDelete(m_pScene); 
 		switch (m_eNextScene)
 		{
 		case CSceneManager::SCENE_LOGO:

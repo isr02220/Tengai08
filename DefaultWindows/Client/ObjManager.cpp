@@ -19,9 +19,9 @@ void CObjManager::Update() {
 	for (size_t i = 0; i < OBJ::END; ++i) {
 		auto iter_end = m_listObj[i].end();
 		for (auto iter = m_listObj[i].begin(); iter != iter_end; ) {
-			int iEvent = (*iter)->Update_Object();
+			int iEvent = (*iter)->Update();
 			if (STATE::DEAD == iEvent) {
-				Safe_Delete(*iter);
+				SafeDelete(*iter);
 				iter = m_listObj[i].erase(iter);
 			}
 			else
@@ -44,7 +44,7 @@ void CObjManager::LateUpdate() {
 
 	for (int i = 0; i < OBJ::END; ++i) {
 		for (auto& pObj : m_listObj[i]) {
-			pObj->LateUpdate_Object();
+			pObj->LateUpdate();
 		}
 	}
 }
@@ -56,7 +56,7 @@ void CObjManager::Render(HDC hDC) {
 void CObjManager::Release() {
 	for (int i = 0; i < OBJ::END; ++i) {
 		for (auto& pObj : m_listObj[i])
-			Safe_Delete(pObj);
+			SafeDelete(pObj);
 		m_listObj[i].clear();
 	}
 }
