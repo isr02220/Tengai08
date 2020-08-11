@@ -146,23 +146,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
-    <ClInclude Include="Collision_Manager.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainApp.h" />
     <ClInclude Include="ObjManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScrollManager.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Total.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Collision_Manager.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="ObjManager.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScrollManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />

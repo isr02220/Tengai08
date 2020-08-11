@@ -18,9 +18,11 @@ typedef struct tagInfo {
 typedef D3DXVECTOR3 DXVECTOR3, *LPDXVECTOR3;
 
 template<typename T>
-void Safe_Delete(T& rObj) {
+void SafeDelete(T& rObj) {
 	if (rObj) {
 		delete rObj;
 		rObj = nullptr;
 	}
 }
+
+

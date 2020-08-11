@@ -1,6 +1,7 @@
 #include "MainApp.h"
 #include "Player.h"
 #include "KeyManager.h"
+#include "SceneManager.h"
 
 CMainApp::CMainApp() {
 	m_hDC = 0;
@@ -11,9 +12,15 @@ CMainApp::~CMainApp() {
 }
 
 void CMainApp::Ready() {
+// HDC
 	m_hDC = GetDC(g_hWnd);
+
+// Player
 	m_pPlayer = new CPlayer();
 	m_pPlayer->Ready();
+
+// Scene
+	CSceneManager::Get_Instance()->ChangeScene(CSceneManager::SCENE_LOGO);
 }
 
 void CMainApp::Update() {
@@ -45,7 +52,7 @@ void CMainApp::Render() {
 }
 
 void CMainApp::Release() {
-	Safe_Delete(m_pPlayer);
+	SafeDelete(m_pPlayer);
 }
 
 

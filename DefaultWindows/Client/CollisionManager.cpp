@@ -1,17 +1,17 @@
-#include "stdafx.h"
-#include "Collision_Manager.h"
+#include "framework.h"
+#include "CollisionManager.h"
 #include "Obj.h"
 
-CCollision_Manager::CCollision_Manager()
+CCollisionManager::CCollisionManager()
 {
 }
 
 
-CCollision_Manager::~CCollision_Manager()
+CCollisionManager::~CCollisionManager()
 {
 }
 
-void CCollision_Manager::Collision_Rect(list<CObj*>& rDstList, list<CObj*>& rSrcList)
+void CCollisionManager::CollisionRect(list<CObj*>& rDstList, list<CObj*>& rSrcList)
 {
 	RECT rc = {}; 
 	for (auto& rDstObject : rDstList)
@@ -27,7 +27,7 @@ void CCollision_Manager::Collision_Rect(list<CObj*>& rDstList, list<CObj*>& rSrc
 	}
 }
 
-void CCollision_Manager::Collision_Sphere(list<CObj*>& rDstList, list<CObj*>& rSrcList)
+void CCollisionManager::CollisionSphere(list<CObj*>& rDstList, list<CObj*>& rSrcList)
 {
 	for (auto& rDstObject : rDstList)
 	{
@@ -42,7 +42,7 @@ void CCollision_Manager::Collision_Sphere(list<CObj*>& rDstList, list<CObj*>& rS
 	}
 }
 
-void CCollision_Manager::Collision_RectEX(list<CObj*>& rDstList, list<CObj*>& rSrcList)
+void CCollisionManager::CollisionRectEX(list<CObj*>& rDstList, list<CObj*>& rSrcList)
 {
 	float fMoveX = 0.f, fMoveY = 0.f; 
 
@@ -74,7 +74,7 @@ void CCollision_Manager::Collision_RectEX(list<CObj*>& rDstList, list<CObj*>& rS
 
 }
 
-bool CCollision_Manager::CheckSphere(const CObj * pDstObject, const CObj & rSrcObject)
+bool CCollisionManager::CheckSphere(const CObj * pDstObject, const CObj & rSrcObject)
 {
 	float fRadiusSum = static_cast<float>((pDstObject->Get_Info()->iCX >> 1) + (rSrcObject.Get_Info()->iCX >> 1));
 	float fX = pDstObject->Get_Info()->fX - rSrcObject.Get_Info()->fX; 
@@ -84,7 +84,7 @@ bool CCollision_Manager::CheckSphere(const CObj * pDstObject, const CObj & rSrcO
 	return fDist <fRadiusSum;
 }
 
-bool CCollision_Manager::CheckRect(const CObj * pDstObject, const CObj & rSrcObject, float * pMoveX, float * pMoveY)
+bool CCollisionManager::CheckRect(const CObj * pDstObject, const CObj & rSrcObject, float * pMoveX, float * pMoveY)
 {
 	// 1.사각형 두개의 x축으로의 반지름의 합을 구함. 
 	float fRadiusSumX = static_cast<float>((pDstObject->Get_Info()->iCX >> 1) + (rSrcObject.Get_Info()->iCX >> 1));
