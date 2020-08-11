@@ -1,10 +1,11 @@
 #pragma once
-#include "Obj.h"
 #include "framework.h"
+#include "Obj.h"
+
 class CPlayer : public CObj {
 public:
 	CPlayer();
-	~CPlayer();
+	virtual ~CPlayer();
 
 public:
 
@@ -19,11 +20,6 @@ public:
 	void Move();
 
 protected:
-	INFO* info = nullptr;
-	RECT* rect = nullptr;
-	FLOAT angle = 0.f;
-	FLOAT speed = 5.f;
-	D3DXVECTOR3 localVertex[4];
-	D3DXVECTOR3 globalVertex[4];
+
 };
 

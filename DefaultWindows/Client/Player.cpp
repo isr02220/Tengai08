@@ -11,7 +11,6 @@ CPlayer::~CPlayer() {
 }
 
 void CPlayer::Ready() {
-	info = new INFO();
 	lstrcpy(info->name, L"플레이어");
 	info->position = { 500.f, 600.f , 0.f };
 	info->size = { 100.f, 100.f , 0.f };
@@ -19,7 +18,6 @@ void CPlayer::Ready() {
 	info->look = { 1.f, 0.f, 0.f };
 	D3DXVECTOR3 vecLT = info->position - info->size / 2.f;
 	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
-	rect = new RECT();
 	
 	localVertex[0] = { info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 	localVertex[1] = { info->size.x / 2.f,  info->size.y / 2.f, 0.f };
@@ -30,7 +28,7 @@ void CPlayer::Ready() {
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 }
 
-INT  CPlayer::Update() {
+INT CPlayer::Update() {
 	//MoveTopdown();
 	UpdateDraw();
 	Move();
@@ -63,15 +61,21 @@ void CPlayer::UpdateDraw() {
 	ScreenToClient(g_hWnd, &pt);
 	D3DXVECTOR3 vMouse = { float(pt.x), float(pt.y), 0.f };
 
-
 	localVertex[0] = {  info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 	localVertex[1] = {  info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[2] = { -info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[3] = { -info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 
+	D3DXMatrixScaling(&m_matScale, 1.f, 1.f, 1.f);
+	D3DXMatrixRotationZ(&m_matRotation, D3DXToRadian(angleRot));
+	D3DXMatrixTranslation(&m_matTransform, info->position.x, info->position.y, info->position.z);
+	D3DXMatrixRotationZ(&m_matRevolution, D3DXToRadian(angleRev));
+	
+	D3DXMatrixIdentity(&m_matW);
+	m_matW = m_matScale * m_matRotation * m_matTransform * m_matRevolution;
+
 	for (size_t i = 0; i < 4; i++) {
-		globalVertex[i].x = localVertex[i].x * cosf(D3DXToRadian(angle)) - localVertex[i].y * sinf(D3DXToRadian(angle)) + info->position.x;
-		globalVertex[i].y = localVertex[i].x * sinf(D3DXToRadian(angle)) + localVertex[i].y * cosf(D3DXToRadian(angle)) + info->position.y;
+		D3DXVec3TransformCoord(&globalVertex[i], &localVertex[i], &m_matW);
 	}
 }
 

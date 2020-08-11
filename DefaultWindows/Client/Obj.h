@@ -16,23 +16,23 @@ public:
 
 public:
 	void SetName(const TCHAR* _name) {
-		lstrcpy(info.name, _name);
+		lstrcpy(info->name, _name);
 	}
 	void SetPosition(const FLOAT& fX, const FLOAT& fY) {
-		info.position.x = fX;
-		info.position.y = fY;
+		info->position.x = fX;
+		info->position.y = fY;
 	}
 	void SetPosition(const D3DXVECTOR3& newPoint) {
-		info.position = newPoint;
+		info->position = newPoint;
 	}
 	TCHAR* GetName() {
-		return info.name;
+		return info->name;
 	}
-	RECT* GetRect() { return &rect; }
-	INFO* GetInfo() { return &info; }
+	RECT* GetRect() { return rect; }
+	INFO* GetInfo() { return info; }
 	BOOL  GetActive() { return active; };
 	BOOL GetVisible() { return isVisible; };
-	D3DXVECTOR3* GetPosition() { return &info.position; }
+	D3DXVECTOR3* GetPosition() { return &info->position; }
 	OBJ::TYPE GetObjectType() { return objectType; }
 
 	void UpdateRect();
@@ -41,14 +41,28 @@ public:
 	void SetVisible(BOOL _val) { isVisible = _val; };
 	void SetFillColor(const COLORREF& _FillColor) { fillColor = _FillColor; }
 	void SetStrokeColor(const COLORREF& _StrokeColor) { strokeColor = _StrokeColor; }
+
 protected:
-	RECT rect;
-	INFO info;
 	OBJ::TYPE objectType = OBJ::END;
 	COLORREF fillColor = RGB(255, 255, 255);
 	COLORREF strokeColor = RGB(0, 0, 0);
 	BOOL dead = false;
 	BOOL active = false;
 	BOOL isVisible = true;
+
+	INFO* info = nullptr;
+	RECT* rect = nullptr;
+	FLOAT angleRot = 0.f;
+	FLOAT angleRev = 0.f;
+	FLOAT speed = 5.f;
+	D3DXVECTOR3 localVertex[4];
+	D3DXVECTOR3 globalVertex[4];
+
+	D3DXMATRIX m_matW;
+	D3DXMATRIX m_matScale; // 크기
+	D3DXMATRIX m_matRotation; // 자전
+	D3DXMATRIX m_matTransform; // 이동
+	D3DXMATRIX m_matRevolution; // 공전
+	D3DXMATRIX m_matParent; // 부모
 };
 
