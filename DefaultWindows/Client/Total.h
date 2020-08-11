@@ -15,8 +15,6 @@ typedef struct tagInfo {
 
 }INFO;
 
-typedef D3DXVECTOR3 DXVECTOR3, *LPDXVECTOR3;
-
 template<typename T>
 void SafeDelete(T& rObj) {
 	if (rObj) {
@@ -25,4 +23,25 @@ void SafeDelete(T& rObj) {
 	}
 }
 
+namespace OBJ {
+	enum TYPE {
+		BACKGROUND,
+		BULLET,
+		MONSTERBULLET,
+		BOMB,
+		PLAYER,
+		PET,
+		MONSTER,
+		ITEM,
+		EFFECT,
+		UI,
+		END
+	};
+}
 
+namespace STATE {
+	enum ID {
+		NO_EVENT,
+		DEAD
+	};
+}

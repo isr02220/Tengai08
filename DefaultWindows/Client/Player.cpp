@@ -1,3 +1,4 @@
+
 #include "framework.h"
 #include "KeyManager.h"
 #include "Player.h"
@@ -17,8 +18,8 @@ void CPlayer::Ready() {
 	info->size = { 100.f, 100.f , 0.f };
 	info->force = { 0.f, 0.f , 0.f };
 	info->look = { 1.f, 0.f, 0.f };
-	DXVECTOR3 vecLT = info->position - info->size / 2.f;
-	DXVECTOR3 vecRB = info->position + info->size / 2.f;
+	D3DXVECTOR3 vecLT = info->position - info->size / 2.f;
+	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
 	rect = new RECT();
 	
 	localVertex[0] = { info->size.x / 2.f, -info->size.y / 2.f, 0.f };
@@ -61,7 +62,7 @@ void CPlayer::UpdateDraw() {
 	POINT pt = {};
 	GetCursorPos(&pt);
 	ScreenToClient(g_hWnd, &pt);
-	DXVECTOR3 vMouse = { float(pt.x), float(pt.y), 0.f };
+	D3DXVECTOR3 vMouse = { float(pt.x), float(pt.y), 0.f };
 	barrel = vMouse - info->position;
 
 	D3DXVec3Normalize(&barrel, &barrel);
@@ -82,19 +83,21 @@ void CPlayer::UpdateDraw() {
 }
 
 void CPlayer::Move() {
+	CKeyManager* keyMgr = CKeyManager::GetInstance();
+	
 	info->position += info->force * speed;
 
 	info->force.x = 0.f;
 	if (info->position.y < 600)  { info->force.y += 0.3f; }
 	else { info->position.y = 600; info->force.y = 0.f; }
-	if (CKeyManager::GetInstance()->Press(KEY::MoveLeft))
+	if (keyMgr->Press(KEY::MoveLeft))
 		info->force.x = -1.f;
-	if (CKeyManager::GetInstance()->Press(KEY::MoveRight))
-		info->force.x =  1.f;
-	if (CKeyManager::GetInstance()->OnPress(KEY::Jump)) {
+	if (keyMgr->Press(KEY::MoveRight))
+		info->force.x = 1.f;
+	if (keyMgr->OnPress(KEY::Jump)) {
 		info->force.y = -5.f;
 	}
-	if (CKeyManager::GetInstance()->Press(KEY::MoveDown)) {
+	if (keyMgr->Press(KEY::MoveDown)) {
 		info->size.y = 30.f;
 	}
 	else {
