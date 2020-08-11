@@ -29,15 +29,14 @@ void CPlayer::Ready() {
 	barrel = { 100.f, 0.f, 0.f };
 	barrelEnd = info->position + barrel;
 
-
 	gravity = 1.2f;
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 }
 
 void CPlayer::Update() {
-	MoveTopdown();
+	//MoveTopdown();
 	//UpdateDraw();
-	//Move();
+	Move();
 }
 
 void CPlayer::LateUpdate() {
@@ -90,16 +89,11 @@ void CPlayer::Move() {
 	info->force.x = 0.f;
 	if (info->position.y < 600)  { info->force.y += 0.3f; }
 	else { info->position.y = 600; info->force.y = 0.f; }
-	if (keyMgr->Press(KEY::MoveLeft))
-		info->force.x = -1.f;
-	if (keyMgr->Press(KEY::MoveRight))
-		info->force.x = 1.f;
-	if (keyMgr->OnPress(KEY::Jump)) {
-		info->force.y = -5.f;
-	}
-	if (keyMgr->Press(KEY::MoveDown)) {
-		info->size.y = 30.f;
-	}
+	if (keyMgr->Press(KEY::MoveLeft))		info->force.x = -1.f;
+	if (keyMgr->Press(KEY::MoveRight))		info->force.x = 1.f;
+	if (keyMgr->Press(KEY::MoveUp))			info->force.y = -1.f;
+	if (keyMgr->Press(KEY::MoveDown))		info->force.y = 1.f;
+
 	else {
 		info->size.y = 100.f;
 	}
