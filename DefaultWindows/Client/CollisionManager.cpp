@@ -71,7 +71,6 @@ void CCollisionManager::CollisionRectEX(list<CObj*>& rDstList, list<CObj*>& rSrc
 			}
 		}
 	}
-
 }
 
 bool CCollisionManager::CheckSphere(const CObj * pDstObject, const CObj & rSrcObject)
