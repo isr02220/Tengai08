@@ -1,25 +1,23 @@
 #pragma once
 #include "framework.h"
-class CPlayer {
+#include "Obj.h"
+
+class CPlayer : public CObj {
 public:
 	CPlayer();
-	~CPlayer();
+	virtual ~CPlayer();
 
 public:
-	void Ready();
-	void Update();
-	void LateUpdate();
-	void Render(HDC hDC);
-	void Release();
+	virtual void Ready();
+	virtual INT Update();
+	virtual void LateUpdate();
+	virtual void Render(HDC hDC);
+	virtual void Release();
+
 	void UpdateDraw();
 	void Move();
 
 protected:
-	INFO* info = nullptr;
-	RECT* rect = nullptr;
-	FLOAT angle = 0.f;
-	FLOAT speed = 5.f;
-	D3DXVECTOR3 localVertex[4];
-	D3DXVECTOR3 globalVertex[4];
+
 };
 
