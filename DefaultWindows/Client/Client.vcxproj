@@ -145,12 +145,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="LogoScene.h" />
     <ClInclude Include="MainApp.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjManager.h" />
     <ClInclude Include="Player.h" />
@@ -168,6 +170,7 @@
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="LogoScene.cpp" />
     <ClCompile Include="MainApp.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjManager.cpp" />
     <ClCompile Include="Player.cpp" />

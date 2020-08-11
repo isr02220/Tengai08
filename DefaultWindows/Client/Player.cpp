@@ -1,4 +1,3 @@
-
 #include "framework.h"
 #include "KeyManager.h"
 #include "Player.h"
@@ -31,10 +30,11 @@ void CPlayer::Ready() {
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 }
 
-void CPlayer::Update() {
+INT  CPlayer::Update() {
 	//MoveTopdown();
 	UpdateDraw();
 	Move();
+	return STATE::NO_EVENT;
 }
 
 void CPlayer::LateUpdate() {
@@ -50,6 +50,10 @@ void CPlayer::Render(HDC hDC) {
 void CPlayer::Release() {
 	delete info;
 	delete rect;
+}
+
+void CPlayer::OnCollision(CObj* _TargetObj) {
+
 }
 
 void CPlayer::UpdateDraw() {

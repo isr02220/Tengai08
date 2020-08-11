@@ -31,6 +31,7 @@ public:
 	RECT* GetRect() { return &rect; }
 	INFO* GetInfo() { return &info; }
 	BOOL  GetActive() { return active; };
+	BOOL GetVisible() { return isVisible; };
 	D3DXVECTOR3* GetPosition() { return &info.position; }
 	OBJ::TYPE GetObjectType() { return objectType; }
 

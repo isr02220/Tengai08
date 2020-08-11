@@ -1,16 +1,20 @@
 #pragma once
+#include "Obj.h"
 #include "framework.h"
-class CPlayer {
+class CPlayer : public CObj {
 public:
 	CPlayer();
 	~CPlayer();
 
 public:
-	void Ready();
-	void Update();
-	void LateUpdate();
-	void Render(HDC hDC);
-	void Release();
+
+	virtual void Ready() override;
+	virtual INT  Update() override;
+	virtual void LateUpdate() override;
+	virtual void Render(HDC hDC) override;
+	virtual void Release() override;
+	virtual void OnCollision(CObj* _TargetObj);
+
 	void UpdateDraw();
 	void Move();
 

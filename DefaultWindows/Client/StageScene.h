@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+class CObj;
 class CPlayer;
 class CStageScene :
     public CScene {
@@ -14,6 +15,6 @@ public:
 	virtual void Release() override;
 
 protected:
-	CPlayer* m_pPlayer = nullptr;
+	CObj* m_pPlayer = nullptr;
 };
 

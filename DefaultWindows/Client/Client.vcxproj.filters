@@ -18,7 +18,10 @@
     <ClCompile Include="LogoScene.cpp">
       <Filter>03.Scene</Filter>
     </ClCompile>
-    <ClCompile Include="StageScene.cpp" />
+    <ClCompile Include="StageScene.cpp">
+      <Filter>03.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -42,7 +45,11 @@
     <ClInclude Include="LogoScene.h">
       <Filter>03.Scene</Filter>
     </ClInclude>
-    <ClInclude Include="StageScene.h" />
+    <ClInclude Include="StageScene.h">
+      <Filter>03.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="AbstractFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
