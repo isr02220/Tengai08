@@ -1,5 +1,7 @@
 #include "framework.h"
 #include "Scene.h"
+#include "LogoScene.h"
+#include "StageScene.h"
 #include "SceneManager.h"
 
 CSceneManager* CSceneManager::m_pInstance = nullptr;
@@ -22,13 +24,13 @@ void CSceneManager::ChangeScene(ID eSceneID)
 		switch (m_eNextScene)
 		{
 		case CSceneManager::SCENE_LOGO:
-			//m_pScene = new CLogo;
+			m_pScene = new CLogoScene;
 			break;
 		case CSceneManager::SCENE_MENU:
 			//m_pScene = new CMyMenu; 
 			break;
 		case CSceneManager::SCENE_STAGE:
-			//m_pScene = new CStage;
+			m_pScene = new CStageScene;
 			break;
 		case CSceneManager::SCENE_END:
 			return;

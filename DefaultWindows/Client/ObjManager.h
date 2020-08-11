@@ -9,7 +9,7 @@ public:
 
 		return m_pInstance;
 	}
-	static void Destroy_Instance() {
+	static void DestroyInstance() {
 		if (m_pInstance) {
 			delete m_pInstance;
 			m_pInstance = nullptr;
