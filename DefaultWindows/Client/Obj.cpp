@@ -1,18 +1,20 @@
 #include "Obj.h"
 CObj::CObj() {
-	ZeroMemory(&info, sizeof(INFO));
 	info = new INFO();
 	rect = new RECT();
+	ZeroMemory(info, sizeof(INFO));
 }
 CObj::CObj(FLOAT _positionX, FLOAT _positionY) {
+	info = new INFO();
+	rect = new RECT();
 	ZeroMemory(info, sizeof(INFO));
 	info->position.x = _positionX;
 	info->position.y = _positionY;
 }
 
 CObj::~CObj() {
-	delete info;
-	delete rect;
+	SafeDelete(info);
+	SafeDelete(rect);
 }
 
 void CObj::UpdateRect() {

@@ -2,7 +2,7 @@
 #include "KeyManager.h"
 #include "Player.h"
 
-CPlayer::CPlayer() {
+CPlayer::CPlayer() : CObj(){
 
 }
 
@@ -46,8 +46,6 @@ void CPlayer::Render(HDC hDC) {
 }
 
 void CPlayer::Release() {
-	delete info;
-	delete rect;
 }
 
 void CPlayer::OnCollision(CObj* _TargetObj) {
