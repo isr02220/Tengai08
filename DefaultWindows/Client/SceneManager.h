@@ -3,13 +3,13 @@ class CScene;
 class CSceneManager
 {
 public:
-	static CSceneManager* Get_Instance()
+	static CSceneManager* GetInstance()
 	{
 		if (nullptr == m_pInstance)
 			m_pInstance = new CSceneManager;
 		return m_pInstance; 
 	}
-	static void Destroy_Instance()
+	static void DestroyInstance()
 	{
 		if (m_pInstance)
 		{

@@ -1,4 +1,5 @@
 #pragma once
+#include "framework.h"
 class CScene abstract
 {
 public:
@@ -11,5 +12,13 @@ public:
 	virtual void Render(HDC hDC) = 0;
 	virtual void Release() = 0;
 
+	BOOL GetActive() { return active; };
+	void SetActive(BOOL _active) { active = _active; };
+
+public:
+	CObjManager* objMgr = nullptr;
+
+	DWORD timer = 0;
+	BOOL active = false;
 };
 

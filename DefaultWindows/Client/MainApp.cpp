@@ -15,21 +15,17 @@ void CMainApp::Ready() {
 // HDC
 	m_hDC = GetDC(g_hWnd);
 
-// Player
-	m_pPlayer = new CPlayer();
-	m_pPlayer->Ready();
-
 // Scene
-	CSceneManager::Get_Instance()->ChangeScene(CSceneManager::SCENE_LOGO);
+	CSceneManager::GetInstance()->ChangeScene(CSceneManager::SCENE_LOGO);
 }
 
 void CMainApp::Update() {
-	m_pPlayer->Update();
 	CKeyManager::GetInstance()->UpdateKeyManager();
+	CSceneManager::GetInstance()->Update();
 }
 
 void CMainApp::LateUpdate() {
-	m_pPlayer->LateUpdate();
+	CSceneManager::GetInstance()->LateUpdate();
 }
 
 void CMainApp::Render() {
@@ -41,10 +37,8 @@ void CMainApp::Render() {
 	oldBitmap = (HBITMAP)SelectObject(hMemDC, hBitmap);
 	SetBkMode(hMemDC, TRANSPARENT);
 	////////////////
-
 	Rectangle(hMemDC, 0, 0, WINCX, WINCY);
-	m_pPlayer->Render(hMemDC);
-
+	CSceneManager::GetInstance()->Render(hMemDC);
 	/// ////////////
 	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hMemDC, 0, 0, SRCCOPY);
 	DeleteObject(SelectObject(hMemDC, oldBitmap));
@@ -52,7 +46,7 @@ void CMainApp::Render() {
 }
 
 void CMainApp::Release() {
-	SafeDelete(m_pPlayer);
+	CSceneManager::GetInstance()->Release();
 }
 
 
