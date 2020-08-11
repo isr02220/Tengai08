@@ -24,8 +24,8 @@ void CMainApp::Ready() {
 }
 
 void CMainApp::Update() {
-	m_pPlayer->Update();
 	CKeyManager::GetInstance()->UpdateKeyManager();
+	m_pPlayer->Update();
 }
 
 void CMainApp::LateUpdate() {
