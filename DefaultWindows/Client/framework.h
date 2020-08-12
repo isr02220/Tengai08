@@ -16,11 +16,14 @@
 #include <vector>
 #include <list>
 #include <map>
-using namespace std;
+
+#pragma warning(disable: 26495)
 #include "d3d9.h"
 #pragma comment(lib, "d3d9.lib")
 #include "d3dx9.h"
 #pragma comment(lib, "d3dx9.lib")
+
+using namespace std;
 #include "Total.h"
 
 #include "CollisionManager.h"

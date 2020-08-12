@@ -16,6 +16,8 @@ public:
 	virtual void Release() override;
 	virtual void OnCollision(CObj* _TargetObj);
 
+	void Input();
+	void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size);
 	void UpdateDraw();
 	void Move();
 

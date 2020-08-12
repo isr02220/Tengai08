@@ -1,5 +1,6 @@
 #pragma once
 #pragma warning(disable: 4351)
+#pragma warning(disable: 26812)
 class CObj;
 class CObjManager {
 public:

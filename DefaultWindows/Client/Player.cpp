@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "KeyManager.h"
 #include "Player.h"
+#include "Bullet.h"
 
 CPlayer::CPlayer() : CObj(){
 
@@ -24,13 +25,13 @@ void CPlayer::Ready() {
 	localVertex[2] = {-info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[3] = {-info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 
-	//gravity = 1.2f;
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 }
 
 INT CPlayer::Update() {
 	//MoveTopdown();
 	UpdateDraw();
+	Input();
 	Move();
 	return STATE::NO_EVENT;
 }
@@ -50,6 +51,19 @@ void CPlayer::Release() {
 
 void CPlayer::OnCollision(CObj* _TargetObj) {
 
+}
+
+void CPlayer::Input() {
+	CKeyManager* keyMgr = CKeyManager::GetInstance();
+	if (keyMgr->OnPress(KEY::PrimaryAction)) {
+		Shoot(0.f, 10.f, 20, 10);
+	}
+}
+
+void CPlayer::Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size) {
+	CObj* bulletObj = new CBullet(_degree, _speed, _damage, _size);
+	bulletObj->SetPosition(info->position);
+	CObjManager::GetInstance()->AddObject(bulletObj, OBJ::BULLET);
 }
 
 void CPlayer::UpdateDraw() {
@@ -91,6 +105,8 @@ void CPlayer::Move() {
 		info->force.y = -1.f;
 	if (keyMgr->Press(KEY::MoveDown))
 		info->force.y = 1.f;
+
+	D3DXVec3Normalize(&info->force, &info->force);
 
 	info->position += info->force * speed;
 }
