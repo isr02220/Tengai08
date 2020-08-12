@@ -16,5 +16,8 @@ public:
 
 protected:
 	CObj* m_pPlayer = nullptr;
+
+	list<stMonsterInfo*> m_listMonsterStandby;
+	DWORD m_dwStartTime = 0;
 };
 

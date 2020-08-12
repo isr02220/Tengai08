@@ -12,5 +12,17 @@ class CMonster :
 
     void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size);
     void Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size);
+
+public:
+	void SetInfo(stMonsterInfo* mobinfo);
+
+private:
+	list<stBulletPattern> listBulletStandby;
+	list<stMovePattern> listMoveStandby;
+
+	int m_hp;
+	int m_point;
+	DWORD m_StartTime;
+	ITEM_TYPE m_dropItem;
 };
 

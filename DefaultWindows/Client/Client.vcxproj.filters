@@ -29,6 +29,18 @@
       <Filter>01.Obj</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="PatternStruct.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterList.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterMovePattern.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterBulletPattern.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -64,6 +76,18 @@
       <Filter>01.Obj</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="PatternStruct.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterList.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterMovePattern.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterBulletPattern.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
@@ -78,6 +102,9 @@
     </Filter>
     <Filter Include="01.Obj">
       <UniqueIdentifier>{065e2d03-ab94-47ba-a360-fe1f76a4a9d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MobPattern">
+      <UniqueIdentifier>{4e399b47-3be7-41a0-be18-0535430ae204}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
