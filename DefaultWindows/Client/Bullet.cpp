@@ -49,10 +49,19 @@ void CBullet::LateUpdate() {
 
 void CBullet::Render(HDC hDC) {
 	CObj::UpdateRect();
-	if (isVisible) {
-		Ellipse(hDC, rect->left, rect->top, rect->right, rect->bottom);
 
-	}
+	HPEN   hPen = CreatePen(PS_SOLID, 1, strokeColor);
+	HBRUSH hBrush = CreateSolidBrush(fillColor);
+
+	HPEN   oldPen = (HPEN)SelectObject(hDC, hPen);
+	HBRUSH oldBrush = (HBRUSH)SelectObject(hDC, hBrush);
+
+	Ellipse(hDC, rect->left, rect->top, rect->right, rect->bottom);
+
+	SelectObject(hDC, oldPen);
+	SelectObject(hDC, oldBrush);
+	DeleteObject(hPen);
+	DeleteObject(hBrush);
 }
 
 void CBullet::Release() {

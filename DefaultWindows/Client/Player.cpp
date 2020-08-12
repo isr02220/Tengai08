@@ -57,11 +57,17 @@ void CPlayer::Input() {
 	CKeyManager* keyMgr = CKeyManager::GetInstance();
 	if (keyMgr->OnPress(KEY::PrimaryAction)) {
 		Shoot(0.f, 10.f, 20, 10);
+		m_hp++;
+	}
+	if (keyMgr->OnPress(KEY::SecondaryAction)) {
+		m_BombCount--;
 	}
 }
 
-void CPlayer::Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size) {
+void CPlayer::Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor, COLORREF _strokeColor) {
 	CObj* bulletObj = new CBullet(_degree, _speed, _damage, _size);
+	bulletObj->SetFillColor(_fillColor);
+	bulletObj->SetStrokeColor(_strokeColor);
 	bulletObj->SetPosition(info->position);
 	CObjManager::GetInstance()->AddObject(bulletObj, OBJ::BULLET);
 }

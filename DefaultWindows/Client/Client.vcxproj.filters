@@ -29,6 +29,9 @@
       <Filter>01.Obj</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="LifeUI.cpp" />
+    <ClCompile Include="BombUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -64,6 +67,9 @@
       <Filter>01.Obj</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="LifeUI.h" />
+    <ClInclude Include="BombUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
@@ -78,6 +84,9 @@
     </Filter>
     <Filter Include="01.Obj">
       <UniqueIdentifier>{065e2d03-ab94-47ba-a360-fe1f76a4a9d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\UI">
+      <UniqueIdentifier>{48edaf10-8aed-4768-a693-505b6b6b00d4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

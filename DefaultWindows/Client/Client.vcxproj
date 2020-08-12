@@ -150,11 +150,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="BombUI.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
+    <ClInclude Include="LifeUI.h" />
     <ClInclude Include="LogoScene.h" />
     <ClInclude Include="MainApp.h" />
     <ClInclude Include="Monster.h" />
@@ -168,12 +170,15 @@
     <ClInclude Include="StageScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Total.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BombUI.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
+    <ClCompile Include="LifeUI.cpp" />
     <ClCompile Include="LogoScene.cpp" />
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -184,6 +189,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScrollManager.cpp" />
     <ClCompile Include="StageScene.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />

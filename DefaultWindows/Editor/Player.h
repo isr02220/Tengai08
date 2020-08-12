@@ -21,7 +21,11 @@ public:
 	void UpdateDraw();
 	void Move();
 
+	INT  GetHP() { return m_hp; }
+	void SetHP(INT _hp) { m_hp = _hp; }
+
 protected:
 
+	INT m_hp = 1;
 };
 

@@ -12,7 +12,7 @@ class CMonster :
 
     void Move();
     void Attack();
-    void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size);
-    void Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size);
+    void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor = RGB(255,128,39), COLORREF _strokeColor = RGB(255, 0, 0));
+    void Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
 };
 
