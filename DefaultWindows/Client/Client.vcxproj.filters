@@ -32,6 +32,18 @@
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="LifeUI.cpp" />
     <ClCompile Include="BombUI.cpp" />
+    <ClCompile Include="PatternStruct.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterList.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterMovePattern.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterBulletPattern.cpp">
+      <Filter>MobPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -70,6 +82,18 @@
     <ClInclude Include="UI.h" />
     <ClInclude Include="LifeUI.h" />
     <ClInclude Include="BombUI.h" />
+    <ClInclude Include="PatternStruct.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterList.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterMovePattern.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterBulletPattern.h">
+      <Filter>MobPattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
@@ -87,6 +111,9 @@
     </Filter>
     <Filter Include="01.Obj\UI">
       <UniqueIdentifier>{48edaf10-8aed-4768-a693-505b6b6b00d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MobPattern">
+      <UniqueIdentifier>{4e399b47-3be7-41a0-be18-0535430ae204}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

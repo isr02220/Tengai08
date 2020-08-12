@@ -26,6 +26,7 @@
 using namespace std;
 #include "Total.h"
 
+#include "PatternStruct.h"
 #include "CollisionManager.h"
 #include "AbstractFactory.h"
 #include "ObjManager.h"

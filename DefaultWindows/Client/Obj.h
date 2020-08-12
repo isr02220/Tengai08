@@ -53,12 +53,16 @@ protected:
 
 	INFO* info = nullptr;
 	RECT* rect = nullptr;
+	
 	FLOAT angleRot = 0.f;
 	FLOAT angleRev = 0.f;
 	FLOAT speed = 5.f;
+
+	// Vertex
 	D3DXVECTOR3 localVertex[4];
 	D3DXVECTOR3 globalVertex[4];
 
+	// Matrix
 	D3DXMATRIX m_matW;
 	D3DXMATRIX m_matScale; // 크기
 	D3DXMATRIX m_matRotation; // 자전
