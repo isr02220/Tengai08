@@ -26,13 +26,13 @@ INT CMonster::Update() {
     if (dead)
         return STATE::DEAD;
 
-	int iCurTime = GetTickCount();
+	DWORD dwCurTime = GetTickCount();
 
 // Move Pattern
 	list<stMovePattern>::iterator iterM = listMoveStandby.begin();
 	while (iterM != listMoveStandby.end())
 	{
-		if (m_StartTime + iterM->iStartTime > iCurTime) {
+		if (m_StartTime + iterM->dwStartTime > dwCurTime) {
 			break;
 		}
 
@@ -48,7 +48,7 @@ INT CMonster::Update() {
 	list<stBulletPattern>::iterator iterB = listBulletStandby.begin();
 	while (iterB != listBulletStandby.end())
 	{
-		if (m_StartTime + iterB->iStartTime > iCurTime) {
+		if (m_StartTime + iterB->dwStartTime > dwCurTime) {
 			break;
 		}
 

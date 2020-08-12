@@ -41,7 +41,7 @@ struct stMonsterInfo {
 };
 
 struct stBulletPattern {
-	int iStartTime;
+	DWORD dwStartTime;
 	int iStartX;
 	int iStartY;
 	float fDirection;
@@ -51,7 +51,7 @@ struct stBulletPattern {
 };
 
 struct stMovePattern {
-	int iStartTime;
+	DWORD dwStartTime;
 	float fDirection;
 	float fSpeed;
 };
