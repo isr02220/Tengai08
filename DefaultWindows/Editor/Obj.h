@@ -46,7 +46,6 @@ protected:
 	OBJ::TYPE objectType = OBJ::END;
 	COLORREF fillColor = RGB(255, 255, 255);
 	COLORREF strokeColor = RGB(0, 0, 0);
-	DWORD timer = GetTickCount();
 	BOOL dead = false;
 	BOOL active = false;
 	BOOL isVisible = true;

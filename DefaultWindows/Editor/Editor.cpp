@@ -1,8 +1,8 @@
-﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
+﻿// Editor.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
 #include "framework.h"
-#include "Client.h"
+#include "Editor.h"
 #include "MainApp.h"
 #define MAX_LOADSTRING 100
 
@@ -32,7 +32,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_CLIENT, szWindowClass, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDC_EDITOR, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -41,7 +41,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
+    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_EDITOR));
 
     CMainApp mainApp;
     pMA = &mainApp;
@@ -92,7 +92,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CLIENT));
+    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITOR));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = NULL;
