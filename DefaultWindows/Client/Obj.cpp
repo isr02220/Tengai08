@@ -24,3 +24,12 @@ void CObj::UpdateRect() {
 	rect->bottom = LONG(info->position.y + (info->size.y / 2.f));
 
 }
+
+void CObj::DrawPolygon(HDC hDC) {
+	POINT* points = new POINT[4];
+	for (INT i = 0; i < 4; i++) {
+		points[i].x = (INT)globalVertex[i].x;
+		points[i].y = (INT)globalVertex[i].y;
+	}
+	Polygon(hDC, points, 4);
+}

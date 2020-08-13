@@ -37,6 +37,7 @@ public:
 	OBJ::TYPE GetObjectType() { return objectType; }
 
 	void UpdateRect();
+	void DrawPolygon(HDC hDC);
 	void SetDead() { dead = true; }
 	void SetActive(BOOL _val) { active = _val; };
 	void SetVisible(BOOL _val) { isVisible = _val; };

@@ -1,16 +1,13 @@
-ï»¿#include "Bullet.h"
+#include "BombBullet.h"
+#include "Bullet.h"
 #include "Player.h"
 #include "Monster.h"
 
-CBullet::CBullet(const FLOAT& _degree, const FLOAT& _speed, const INT& _damage, const LONG& _bulletSize)
-	: CObj()
-	, m_damage(_damage) {
+CBombBullet::CBombBullet()
+	: CBullet(0.f, 0.f, 50, 500) {
 	objectType = OBJ::BULLET;
-	lstrcpy(info->name, L"ì´ì•Œ");
-	info->size = { (FLOAT)_bulletSize, (FLOAT)_bulletSize , 0.f };
-	speed = _speed;
-	float rad = D3DXToRadian(_degree);
-	info->force = { cosf(rad), sinf(rad), 0.f };
+	lstrcpy(info->name, L"ÆøÅº ÃÑ¾Ë");
+	info->size = { (FLOAT)500, (FLOAT)500 , 0.f };
 
 	D3DXVECTOR3 vecLT = info->position - info->size / 2.f;
 	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
@@ -20,27 +17,22 @@ CBullet::CBullet(const FLOAT& _degree, const FLOAT& _speed, const INT& _damage, 
 	localVertex[2] = { -info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[3] = { -info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 
-	//gravity = 1.2f;
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 }
 
-CBullet::~CBullet() {
+CBombBullet::~CBombBullet() {
 
 }
 
-void CBullet::Ready() {
+void CBombBullet::Ready() {
 }
 
-int CBullet::Update() {
+int CBombBullet::Update() {
 	CObj::UpdateRect();
-	if (dead ||
-		rect->left   <DeadLineMargin ||
-		rect->top    <DeadLineMargin  ||
-		rect->right  >WINCX - DeadLineMargin ||
-		rect->bottom >WINCY - DeadLineMargin)
+	
+	if (dead)
 		return STATE::DEAD;
-	info->position += info->force * speed;
-
+	
 	D3DXVECTOR3 vecLT = info->position - info->size / 2.f;
 	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
 
@@ -49,16 +41,24 @@ int CBullet::Update() {
 	localVertex[2] = { -info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[3] = { -info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 
-	//gravity = 1.2f;
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 
+	info->size *= 0.9f;
+	if (info->size.x < 400.f)
+		objectType = OBJ::EFFECT;
+	if (info->size.x < 200.f)
+		SetFillColor(RGB(30, 128, 192));
+	if (info->size.x < 100.f)
+		SetFillColor(RGB(60, 150, 255));
+	else if (info->size.x < 0.1f)
+		SetDead();
 	return STATE::NO_EVENT;
 }
 
-void CBullet::LateUpdate() {
+void CBombBullet::LateUpdate() {
 }
 
-void CBullet::Render(HDC hDC) {
+void CBombBullet::Render(HDC hDC) {
 	CObj::UpdateRect();
 
 	HPEN   hPen = CreatePen(PS_SOLID, 1, strokeColor);
@@ -75,9 +75,9 @@ void CBullet::Render(HDC hDC) {
 	DeleteObject(hBrush);
 }
 
-void CBullet::Release() {
+void CBombBullet::Release() {
 }
 
-void CBullet::OnCollision(CObj* _SrcObj) {
-	SetDead();
+void CBombBullet::OnCollision(CObj* _SrcObj) {
+
 }

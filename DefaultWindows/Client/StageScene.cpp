@@ -25,7 +25,7 @@ void CStageScene::Ready() {
 // Player
 	m_pPlayer = new CPlayer();
 	m_pPlayer->Ready();
-	objMgr->AddObject(CAbstractFactory<CPlayer>::Create(300.f, 300.f), OBJ::PLAYER);
+	objMgr->AddObject(CAbstractFactory<CPlayer>::Create(-300.f, 400.f), OBJ::PLAYER);
 
 // Monster
 	for (int i = 0; i < iMobListSize; i++) {

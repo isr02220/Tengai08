@@ -1,5 +1,6 @@
 #include "Monster.h"
 #include "Bullet.h"
+#include "Effect.h"
 
 void CMonster::Ready() {
 	info = new INFO();
@@ -69,15 +70,15 @@ INT CMonster::Update() {
 	localVertex[3] = { -info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 
 	info->position += info->force * speed;
-
+	angleRot += 3.f;
 	D3DXMatrixScaling(&m_matScale, 1.f, 1.f, 1.f);
-	//D3DXMatrixRotationZ(&m_matRotation, D3DXToRadian(angleRot));
+	D3DXMatrixRotationZ(&m_matRotation, D3DXToRadian(angleRot));
 	D3DXMatrixTranslation(&m_matTransform, info->position.x, info->position.y, info->position.z);
-	//D3DXMatrixRotationZ(&m_matRevolution, D3DXToRadian(angleRev));
+	D3DXMatrixRotationZ(&m_matRevolution, D3DXToRadian(angleRev));
 
 	D3DXMatrixIdentity(&m_matW);
-	//m_matW = m_matScale * m_matRotation * m_matTransform * m_matRevolution;
-	m_matW = m_matScale * m_matTransform;
+	m_matW = m_matScale * m_matRotation * m_matTransform * m_matRevolution;
+	//m_matW = m_matScale * m_matTransform;
 
 	for (size_t i = 0; i < 4; i++) {
 		D3DXVec3TransformCoord(&globalVertex[i], &localVertex[i], &m_matW);
@@ -99,15 +100,26 @@ void CMonster::Render(HDC hDC) {
 	HPEN   hPen = CreatePen(PS_SOLID, 1, strokeColor);
 	HBRUSH hBrush = CreateSolidBrush(fillColor);
 
+	FLOAT  hpPercent = (FLOAT)m_hp / (FLOAT)m_maxHp;
+	INT colorR = 255;
+	INT colorG = 255;
+	if (hpPercent > 0.5f) {
+		colorR = INT(255 - hpPercent * 510);
+		colorG = 255;
+	}
+	else {
+		colorG = INT((hpPercent * hpPercent) * 510);
+		if (colorG < 0) colorG = 0;
+		colorR = 255;
+	}
 	HPEN   hPanelPen   = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
 	HBRUSH hPanelBrush = CreateSolidBrush(RGB(0, 0, 0));
 	HPEN   hHpPen   = CreatePen(PS_NULL, 1, RGB(0,0,0));
-	HBRUSH hHpBrush = CreateSolidBrush(RGB(0, 255, 0));
-
+	HBRUSH hHpBrush = CreateSolidBrush(RGB(colorR, colorG, 0));
 	HPEN   oldPen   = (HPEN)SelectObject(hDC, hPen);
 	HBRUSH oldBrush = (HBRUSH)SelectObject(hDC, hBrush);
 
-	Rectangle(hDC, rect->left, rect->top, rect->right, rect->bottom);
+	DrawPolygon(hDC);
 
 	RECT rc = {};
 	SetRect(&rc, rect->left, rect->bottom, rect->right, rect->bottom + 20);
@@ -118,7 +130,7 @@ void CMonster::Render(HDC hDC) {
 
 	(HPEN)SelectObject(hDC, hHpPen);
 	(HBRUSH)SelectObject(hDC, hHpBrush);
-	Rectangle(hDC, rc.left+1, rc.top, rc.right-10, rc.bottom);
+	Rectangle(hDC, rc.left+1, rc.top, rc.left + INT(hpPercent * (rc.right - rc.left)), rc.bottom);
 
 	SelectObject(hDC, oldPen);
 	SelectObject(hDC, oldBrush);
@@ -135,7 +147,22 @@ void CMonster::Release() {
 }
 
 void CMonster::OnCollision(CObj* _TargetObj) {
+	if (_TargetObj->GetObjectType() == OBJ::BULLET) {
 
+		CObj* effect = new CEffect(FLOAT(rand() % 30), 15.f, 15.f, 4, 20);
+		effect->SetPosition(info->position);
+		effect->Ready();
+		CObjManager::GetInstance()->AddObject(effect, OBJ::EFFECT);
+
+		m_hp -= dynamic_cast<CBullet*>(_TargetObj)->GetDamage();
+		if (m_hp <= 0) {
+			CObj* effect = new CEffect(FLOAT(rand() % 30), 5.f, 15.f, 22, 20);
+			effect->SetPosition(info->position);
+			effect->Ready();
+			CObjManager::GetInstance()->AddObject(effect, OBJ::EFFECT);
+			SetDead();
+		}
+	}
 }
 
 void CMonster::Move() {
@@ -169,6 +196,7 @@ void CMonster::SetInfo(stMonsterInfo * mobinfo)
 	fillColor		= mobTypeList[mobinfo->type].color;
 	info->size.x	= (FLOAT)mobTypeList[mobinfo->type].iCX;
 	info->size.y	= (FLOAT)mobTypeList[mobinfo->type].iCY;
+	m_maxHp			= mobTypeList[mobinfo->type].iHP;
 	m_hp			= mobTypeList[mobinfo->type].iHP;
 	m_point			= mobTypeList[mobinfo->type].iPoint;
 

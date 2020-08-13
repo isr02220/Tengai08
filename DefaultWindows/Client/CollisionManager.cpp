@@ -11,6 +11,18 @@ CCollisionManager::~CCollisionManager()
 {
 }
 
+void CCollisionManager::CollisionPoint(CObj* pointObj, list<CObj*>& rDstList) {
+	POINT pt = {};
+	for (auto DstObj : rDstList) {
+
+		pt.x = (INT)pointObj->GetPosition()->x;
+		pt.y = (INT)pointObj->GetPosition()->y;
+		if (PtInRect(DstObj->GetRect(), pt)) {
+			pointObj->OnCollision(DstObj);
+			DstObj->OnCollision(pointObj);
+		}
+	}
+}
 void CCollisionManager::CollisionRect(list<CObj*>& rDstList, list<CObj*>& rSrcList)
 {
 	RECT rc = {}; 

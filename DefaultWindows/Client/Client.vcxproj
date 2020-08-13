@@ -151,10 +151,13 @@
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Bomb.h" />
+    <ClInclude Include="BombBullet.h" />
     <ClInclude Include="BombUI.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="LifeUI.h" />
@@ -166,8 +169,10 @@
     <ClInclude Include="MonsterMovePattern.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjManager.h" />
+    <ClInclude Include="Particle.h" />
     <ClInclude Include="PatternStruct.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -179,10 +184,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="BombBullet.cpp" />
     <ClCompile Include="BombUI.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="LifeUI.cpp" />
     <ClCompile Include="LogoScene.cpp" />
@@ -193,8 +201,10 @@
     <ClCompile Include="MonsterMovePattern.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjManager.cpp" />
+    <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PatternStruct.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScrollManager.cpp" />

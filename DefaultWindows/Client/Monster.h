@@ -21,6 +21,7 @@ private:
 	list<stMovePattern> listMoveStandby;
 
 	int m_hp;
+	int m_maxHp;
 	int m_point;
 	DWORD m_StartTime;
 	ITEM_TYPE m_dropItem;

@@ -15,6 +15,7 @@ private:
     list<CBgObj*> m_ListBgFar;
     list<CBgObj*> m_ListBgMiddle;
     list<CBgObj*> m_ListBgClose;
+    list<CBgObj*> m_ListBgGround;
 };
 
 class CBgObj {

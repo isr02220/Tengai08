@@ -31,16 +31,11 @@ void CObjManager::Update() {
 }
 
 void CObjManager::LateUpdate() {
-	//CCollisionManager::CollisionBelt(m_listObj[OBJ::PLAYER]);
-	//CCollisionManager::CollisionBelt(m_listObj[OBJ::ITEM]);
 	//CCollisionManager::CollisionSphere(m_listObj[OBJ::PLAYER], m_listObj[OBJ::ITEM]);
-	//CCollisionManager::CollisionSphere(m_listObj[OBJ::MONSTER], m_listObj[OBJ::BULLET]);
-	//CCollisionManager::CollisionSphere(m_listObj[OBJ::PLAYER], m_listObj[OBJ::MONSTERBULLET]);
+	CCollisionManager::CollisionSphere(m_listObj[OBJ::MONSTER], m_listObj[OBJ::BULLET]);
+	CCollisionManager::CollisionPoint(m_listObj[OBJ::PLAYER].front(), m_listObj[OBJ::MONSTERBULLET]);
+	CCollisionManager::CollisionSphere(m_listObj[OBJ::BOMB], m_listObj[OBJ::MONSTERBULLET]);
 	//CCollisionManager::CollisionRectEX(m_listObj[OBJ::PLAYER], m_listObj[OBJ::BELT]);
-	//CCollisionManager::CollisionPoint(m_listObj[OBJ::MOUSE].front(), m_listObj[OBJ::PLAYER]);
-	//CCollisionManager::CollisionPoint(m_listObj[OBJ::MOUSE].front(), vecObj[OBJ::RESOURCEORE]);
-	//CCollisionManager::CollisionPoint(m_listObj[OBJ::MOUSE].front(), vecObj[OBJ::BELT]);
-	//CCollisionManager::CollisionPoint(m_listObj[OBJ::MOUSE].front(), vecObj[OBJ::ENTITY]);
 
 	for (int i = 0; i < OBJ::END; ++i) {
 		for (auto& pObj : m_listObj[i]) {

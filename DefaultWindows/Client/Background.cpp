@@ -5,6 +5,7 @@ void CBackground::Ready() {
 		m_ListBgFar.emplace_back(new CBgObj(i * 100 + (rand() % 50), 400 + (rand() % 200), (i + 1) * 100, WINCY));
 		m_ListBgMiddle.emplace_back(new CBgObj(i * 200 + (rand() % 100), 500 + (rand() % 100), (i + 1) * 200, WINCY));
 		m_ListBgClose.emplace_back(new CBgObj(i * 300 + (rand() % 200), 600 + (rand() % 100), (i + 1) * 300, WINCY));
+		m_ListBgGround.emplace_back(new CBgObj(i * 300 + (rand() % 200), 600 + (rand() % 100), (i + 1) * 300, WINCY));
 	}
 }
 
@@ -40,23 +41,27 @@ void CBackground::LateUpdate() {
 
 void CBackground::Render(HDC hDC) {
 	HPEN   hPenNull = CreatePen(PS_NULL, 1, RGB(26, 26, 26));
-	HBRUSH hBrush1 = CreateSolidBrush(RGB(248, 160, 112));
-	HBRUSH hBrush2 = CreateSolidBrush(RGB(208, 120, 72));
-	HBRUSH hBrush3 = CreateSolidBrush(RGB(168, 80, 32));
-	HBRUSH hBrushGreen = CreateSolidBrush(RGB(29, 215, 20));
+	HBRUSH hBrushBack = CreateSolidBrush(RGB(108, 255, 255));
+	HBRUSH hBrushFar = CreateSolidBrush(RGB(108, 30, 10));
+	HBRUSH hBrushMiddle = CreateSolidBrush(RGB(148, 60, 22));
+	HBRUSH hBrushClose = CreateSolidBrush(RGB(168, 80, 32));
+	HBRUSH hBrushBush = CreateSolidBrush(RGB(29, 215, 20));
 
 	HPEN   oldPen = (HPEN)SelectObject(hDC, hPenNull);
-	HBRUSH oldBrush = (HBRUSH)SelectObject(hDC, hBrush1);
+	HBRUSH oldBrush = (HBRUSH)SelectObject(hDC, hBrushBack);
 
+	CBgObj backBg(0,0,WINCX, WINCY);
+	backBg.Draw(hDC);
+	(HBRUSH)SelectObject(hDC, hBrushFar);
 	for (auto bgObj : m_ListBgFar)
 		bgObj->Draw(hDC);
-	(HBRUSH)SelectObject(hDC, hBrush2);
+	(HBRUSH)SelectObject(hDC, hBrushMiddle);
 	for (auto bgObj : m_ListBgMiddle)
 		bgObj->Draw(hDC);
-	(HBRUSH)SelectObject(hDC, hBrush3);
+	(HBRUSH)SelectObject(hDC, hBrushClose);
 	for (auto bgObj : m_ListBgClose)
 		bgObj->Draw(hDC);
-	(HBRUSH)SelectObject(hDC, hBrushGreen);
+	(HBRUSH)SelectObject(hDC, hBrushBush);
 	for (auto bgObj : m_ListBgClose) {
 		FLOAT offsetLeft   = -20;
 		FLOAT offsetTop    = -80;
@@ -70,9 +75,9 @@ void CBackground::Render(HDC hDC) {
 	SelectObject(hDC, oldPen);
 	SelectObject(hDC, oldBrush);
 	DeleteObject(hPenNull);
-	DeleteObject(hBrush1);
-	DeleteObject(hBrush2);
-	DeleteObject(hBrush3);
+	DeleteObject(hBrushFar);
+	DeleteObject(hBrushMiddle);
+	DeleteObject(hBrushClose);
 }
 
 void CBackground::Release() {

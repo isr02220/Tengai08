@@ -1,10 +1,10 @@
 #pragma once
-#include "Obj.h"
-class CBullet :
-    public CObj {
+#include "Bullet.h"
+class CBombBullet :
+    public CBullet {
 public:
-	CBullet(const FLOAT& _degree, const FLOAT& _speed, const INT& _damage, const LONG& _bulletSize);
-	virtual ~CBullet();
+	CBombBullet();
+	virtual ~CBombBullet();
 public:
 	virtual void Ready() override;
 	virtual int Update() override;

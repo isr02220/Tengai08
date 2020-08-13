@@ -6,6 +6,7 @@ public:
 	CCollisionManager();
 	~CCollisionManager();
 public:
+	static void CollisionPoint(CObj* pointObj, list<CObj*>& rDstList);
 	static void CollisionRect(list<CObj*>& rDstList, list<CObj*>& rSrcList);
 	static void CollisionSphere(list<CObj*>& rDstList, list<CObj*>& rSrcList);
 	static void CollisionRectEX(list<CObj*>& rDstList, list<CObj*>& rSrcList);

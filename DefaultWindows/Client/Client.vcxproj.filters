@@ -28,10 +28,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>01.Obj</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="UI.cpp" />
-    <ClCompile Include="LifeUI.cpp" />
-    <ClCompile Include="BombUI.cpp" />
     <ClCompile Include="PatternStruct.cpp">
       <Filter>MobPattern</Filter>
     </ClCompile>
@@ -44,7 +40,26 @@
     <ClCompile Include="MonsterBulletPattern.cpp">
       <Filter>MobPattern</Filter>
     </ClCompile>
-    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BombUI.cpp">
+      <Filter>01.Obj\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LifeUI.cpp">
+      <Filter>01.Obj\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>01.Obj\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>01.Obj\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="BombBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -79,10 +94,6 @@
     <ClInclude Include="Player.h">
       <Filter>01.Obj</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="UI.h" />
-    <ClInclude Include="LifeUI.h" />
-    <ClInclude Include="BombUI.h" />
     <ClInclude Include="PatternStruct.h">
       <Filter>MobPattern</Filter>
     </ClInclude>
@@ -95,7 +106,26 @@
     <ClInclude Include="MonsterBulletPattern.h">
       <Filter>MobPattern</Filter>
     </ClInclude>
-    <ClInclude Include="Background.h" />
+    <ClInclude Include="BombUI.h">
+      <Filter>01.Obj\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeUI.h">
+      <Filter>01.Obj\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>01.Obj\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>01.Obj\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="Bomb.h" />
+    <ClInclude Include="BombBullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
@@ -119,6 +149,12 @@
     </Filter>
     <Filter Include="01.Obj\Background">
       <UniqueIdentifier>{325238da-f265-4819-8f94-4bd24c93e04a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Bullet">
+      <UniqueIdentifier>{4dade53d-2b2a-4cab-a5f7-1d7085d36ceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Effect">
+      <UniqueIdentifier>{9321d5b3-a583-4fb5-9deb-339b91b88960}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
