@@ -1,3 +1,4 @@
 #pragma once
 
-extern stMonsterInfo MobList[1];
+extern stMonsterInfo MobList[];
+extern int iMobListSize;

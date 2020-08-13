@@ -23,8 +23,7 @@ void CStageScene::Ready() {
 	objMgr->AddObject(CAbstractFactory<CPlayer>::Create(300.f, 300.f), OBJ::PLAYER);
 
 // Monster
-	int iSize = sizeof(MobList) / sizeof(stMonsterInfo);
-	for (int i = 0; i < iSize; i++) {
+	for (int i = 0; i < iMobListSize; i++) {
 		stMonsterInfo* pMobList = new stMonsterInfo;
 		*pMobList = MobList[i];
 		m_listMonsterStandby.push_back(pMobList);

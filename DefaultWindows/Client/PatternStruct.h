@@ -47,6 +47,7 @@ struct stBulletPattern {
 	float fDirection;
 	float fSpeed;
 	int iBulletSize;
+	float fRevZ;
 	bool horming; // 유도 여부
 };
 
