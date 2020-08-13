@@ -55,11 +55,21 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>01.Obj\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp" />
-    <ClCompile Include="Effect.cpp" />
-    <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="Bomb.cpp" />
-    <ClCompile Include="BombBullet.cpp" />
+    <ClCompile Include="Effect.cpp">
+      <Filter>01.Obj\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>01.Obj\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BombBullet.cpp">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -121,11 +131,21 @@
     <ClInclude Include="Bullet.h">
       <Filter>01.Obj\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerBullet.h" />
-    <ClInclude Include="Effect.h" />
-    <ClInclude Include="Particle.h" />
-    <ClInclude Include="Bomb.h" />
-    <ClInclude Include="BombBullet.h" />
+    <ClInclude Include="Effect.h">
+      <Filter>01.Obj\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>01.Obj\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomb.h">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BombBullet.h">
+      <Filter>01.Obj\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
