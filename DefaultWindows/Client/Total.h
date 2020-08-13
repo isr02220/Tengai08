@@ -28,12 +28,12 @@ void SafeDelete(T& rObj) {
 namespace OBJ {
 	enum TYPE {
 		BACKGROUND,
-		BULLET,
-		MONSTERBULLET,
 		BOMB,
 		PLAYER,
 		PET,
 		MONSTER,
+		BULLET,
+		MONSTERBULLET,
 		ITEM,
 		EFFECT,
 		UI,

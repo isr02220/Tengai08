@@ -36,8 +36,8 @@ INT CMonster::Update() {
 			break;
 		}
 
-		info->force.x =  cosf(D3DXToRadian(iterM->fDirection));
-		info->force.y = -sinf(D3DXToRadian(iterM->fDirection));
+		info->force.x = cosf(D3DXToRadian(iterM->fDirection));
+		info->force.y = sinf(D3DXToRadian(iterM->fDirection));
 
 		speed = iterM->fSpeed;
 

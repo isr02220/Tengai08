@@ -17,6 +17,7 @@ void CPlayer::Ready() {
 	info->size = { 100.f, 100.f , 0.f };
 	info->force = { 0.f, 0.f , 0.f };
 	info->look = { 1.f, 0.f, 0.f };
+	speed = 10.f;
 	D3DXVECTOR3 vecLT = info->position - info->size / 2.f;
 	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
 	
