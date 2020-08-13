@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="BombUI.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Client.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="BombUI.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Client.cpp" />

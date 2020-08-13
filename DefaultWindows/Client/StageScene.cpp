@@ -1,5 +1,6 @@
 #include "StageScene.h"
 #include "Obj.h"
+#include "Background.h"
 #include "Player.h"
 #include "Monster.h"
 #include "Obj.h"
@@ -8,7 +9,6 @@
 #include "UI.h"
 #include "LifeUI.h"
 #include "BombUI.h"
-
 CStageScene::CStageScene() : CScene() {
 }
 
@@ -17,6 +17,7 @@ CStageScene::~CStageScene() {
 }
 
 void CStageScene::Ready() {
+
 	SetActive(true);
 
 	m_dwStartTime = GetTickCount();
@@ -32,6 +33,7 @@ void CStageScene::Ready() {
 		*pMobList = MobList[i];
 		m_listMonsterStandby.push_back(pMobList);
 	}
+	objMgr->AddObject(CAbstractFactory<CBackground>::Create(), OBJ::BACKGROUND);
 	objMgr->AddObject(CAbstractFactory<CLifeUI>::Create(), OBJ::UI);
 	objMgr->AddObject(CAbstractFactory<CBombUI>::Create(), OBJ::UI);
 }

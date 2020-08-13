@@ -167,8 +167,8 @@ void CMonster::SetInfo(stMonsterInfo * mobinfo)
 {
 	// Monster Info
 	fillColor		= mobTypeList[mobinfo->type].color;
-	info->size.x	= mobTypeList[mobinfo->type].iCX;
-	info->size.y	= mobTypeList[mobinfo->type].iCY;
+	info->size.x	= (FLOAT)mobTypeList[mobinfo->type].iCX;
+	info->size.y	= (FLOAT)mobTypeList[mobinfo->type].iCY;
 	m_hp			= mobTypeList[mobinfo->type].iHP;
 	m_point			= mobTypeList[mobinfo->type].iPoint;
 

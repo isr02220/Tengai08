@@ -32,13 +32,13 @@ void CBullet::Ready() {
 }
 
 int CBullet::Update() {
+	CObj::UpdateRect();
 	if (dead ||
 		rect->left   <DeadLineMargin ||
 		rect->top    <DeadLineMargin  ||
 		rect->right  >WINCX - DeadLineMargin ||
 		rect->bottom >WINCY - DeadLineMargin)
 		return STATE::DEAD;
-	CObj::UpdateRect();
 	info->position += info->force * speed;
 
 	return STATE::NO_EVENT;

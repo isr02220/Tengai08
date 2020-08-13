@@ -30,8 +30,9 @@ public:
 	}
 	RECT* GetRect() { return rect; }
 	INFO* GetInfo() { return info; }
-	BOOL  GetActive() { return active; };
-	BOOL GetVisible() { return isVisible; };
+	BOOL  GetActive() { return active; }
+	BOOL GetVisible() { return isVisible; }
+	FLOAT GetSpeed() { return speed; }
 	D3DXVECTOR3* GetPosition() { return &info->position; }
 	OBJ::TYPE GetObjectType() { return objectType; }
 
@@ -39,6 +40,7 @@ public:
 	void SetDead() { dead = true; }
 	void SetActive(BOOL _val) { active = _val; };
 	void SetVisible(BOOL _val) { isVisible = _val; };
+	void SetSpeed(FLOAT _speed) { speed = _speed;}
 	void SetFillColor(const COLORREF& _FillColor) { fillColor = _FillColor; }
 	void SetStrokeColor(const COLORREF& _StrokeColor) { strokeColor = _StrokeColor; }
 

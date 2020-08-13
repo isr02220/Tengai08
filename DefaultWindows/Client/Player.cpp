@@ -58,7 +58,7 @@ void CPlayer::Input() {
 	CKeyManager* keyMgr = CKeyManager::GetInstance();
 	if (keyMgr->OnPress(KEY::PrimaryAction)) {
 		Shoot(0.f, 10.f, 20, 10);
-		m_hp++;
+		//m_hp++;
 	}
 	if (keyMgr->OnPress(KEY::SecondaryAction)) {
 		m_BombCount--;

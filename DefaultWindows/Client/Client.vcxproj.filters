@@ -44,6 +44,7 @@
     <ClCompile Include="MonsterBulletPattern.cpp">
       <Filter>MobPattern</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="MonsterBulletPattern.h">
       <Filter>MobPattern</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
@@ -114,6 +116,9 @@
     </Filter>
     <Filter Include="MobPattern">
       <UniqueIdentifier>{4e399b47-3be7-41a0-be18-0535430ae204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Background">
+      <UniqueIdentifier>{325238da-f265-4819-8f94-4bd24c93e04a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
