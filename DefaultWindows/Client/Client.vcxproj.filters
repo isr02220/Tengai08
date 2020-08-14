@@ -72,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="ChargeBullet.cpp" />
+    <ClCompile Include="EndScene.cpp">
+      <Filter>03.Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -150,6 +153,9 @@
     </ClInclude>
     <ClInclude Include="Pet.h" />
     <ClInclude Include="ChargeBullet.h" />
+    <ClInclude Include="EndScene.h">
+      <Filter>03.Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />

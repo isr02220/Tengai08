@@ -3,6 +3,7 @@
 #include "LogoScene.h"
 #include "StageScene.h"
 #include "SceneManager.h"
+#include "EndScene.h"
 
 CSceneManager* CSceneManager::m_pInstance = nullptr;
 CSceneManager::CSceneManager()
@@ -33,6 +34,7 @@ void CSceneManager::ChangeScene(ID eSceneID)
 			m_pScene = new CStageScene;
 			break;
 		case CSceneManager::SCENE_END:
+			m_pScene = new CEndScene;
 			return;
 		default:
 			break;

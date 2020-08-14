@@ -9,6 +9,8 @@
 #include "UI.h"
 #include "LifeUI.h"
 #include "BombUI.h"
+#include "SceneManager.h"
+
 CStageScene::CStageScene() : CScene() {
 }
 
@@ -61,6 +63,12 @@ void CStageScene::Update() {
 	}
 
 	objMgr->Update();
+
+	int iMobStandbyNum = m_listMonsterStandby.size();
+	int iMobObjNum = objMgr->GetList(OBJ::MONSTER)->size();
+	if (iMobStandbyNum == 0 && iMobObjNum == 0) {
+		CSceneManager::GetInstance()->ChangeScene(CSceneManager::SCENE_END);
+	}
 }
 
 void CStageScene::LateUpdate() {
