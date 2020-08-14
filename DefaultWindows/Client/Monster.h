@@ -10,8 +10,8 @@ class CMonster :
     virtual void Release() override;
     virtual void OnCollision(CObj* _TargetObj) override;
 
-    void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
-    void Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
+    void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, D3DXVECTOR3 _posoffset, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
+    void Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, D3DXVECTOR3 _posoffset, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
 
 public:
 	void SetInfo(stMonsterInfo* mobinfo);

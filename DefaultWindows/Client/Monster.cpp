@@ -54,10 +54,10 @@ INT CMonster::Update() {
 		}
 
 		if (iterB->horming) {
-			Shoot(CObjManager::GetInstance()->GetPlayer(), iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize);
+			Shoot(CObjManager::GetInstance()->GetPlayer(), iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize, D3DXVECTOR3((float)iterB->iStartX, (float)iterB->iStartY, 0.f));
 		}
 		else {
-			Shoot(iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize);
+			Shoot(iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize, D3DXVECTOR3((float)iterB->iStartX, (float)iterB->iStartY, 0.f));
 		}
 
 		iterB = listBulletStandby.erase(iterB);
