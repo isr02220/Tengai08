@@ -25,7 +25,7 @@ void CLogoScene::LateUpdate() {
 
 void CLogoScene::Render(HDC hDC) {
 
-	RECT rc = { 0,0, WINCX, WINCY };
+	RECT rc = { 0, WINCY >> 1, WINCX, WINCY };
 	//AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
 	DrawText(hDC, L"TENGAI", lstrlen(L"TENGAI"), &rc, DT_VCENTER | DT_CENTER | DT_NOCLIP);
 }
