@@ -48,6 +48,15 @@ void CKeyManager::UpdateKeyManager() {
 	KEY_CHECK(SHIFT);
 	KEY_CHECK(CONTROL);
 	KEY_CHECK(ALT);
+
+	for (size_t i = 0; i < 32; i++) {
+		if (m_dwKey & 0x00000001 << i) {
+			m_KeyStack[i]++;
+		}
+		else {
+			m_KeyStack[i] = 0;
+		}
+	}
 }
 
 void CKeyManager::SetKey(KEY::ID _keyID, SHORT _newKey) { keyMap[_keyID] = _newKey; }

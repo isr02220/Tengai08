@@ -91,12 +91,20 @@ void CPlayer::Input() {
 		else if (m_invincible && timer + 3000 < GetTickCount()) {
 			m_invincible = false;
 		}
-		if (keyMgr->Press(KEY::PrimaryAction)) {
+		if (keyMgr->OnPress(KEY::PrimaryAction)) {
 			if (m_shootDelayCount == 0) {
 				m_shootDelayCount = m_shootDelay;
 				Shoot(FLOAT((rand() % m_ShootDegree) - (m_ShootDegree >> 1)), 30.f, 20, 50, RGB(153, 204, 255), RGB(102, 102, 255));
 			}
 		}
+
+		if (keyMgr->OnRelease(KEY::PrimaryAction)) {
+			if (m_ChargeShootReady) {
+				Shoot(0.f, 10.f, 20, 150, RGB(153, 204, 255), RGB(102, 102, 255));
+			}
+		}
+
+		m_ChargeShootReady = keyMgr->KeepPress(KEY::PrimaryAction, 80);
 		if (keyMgr->OnPress(KEY::SecondaryAction)) {
 			ShootBomb();
 		}
