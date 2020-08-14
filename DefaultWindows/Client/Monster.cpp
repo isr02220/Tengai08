@@ -53,10 +53,10 @@ INT CMonster::Update() {
 		}
 
 		if (iterB->horming) {
-			Shoot(CObjManager::GetInstance()->GetPlayer(), iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize);
+			Shoot(CObjManager::GetInstance()->GetPlayer(), iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize, D3DXVECTOR3((float)iterB->iStartX, (float)iterB->iStartY, 0.f));
 		}
 		else {
-			Shoot(iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize);
+			Shoot(iterB->fDirection, iterB->fSpeed, 20, iterB->iBulletSize, D3DXVECTOR3((float)iterB->iStartX, (float)iterB->iStartY, 0.f));
 		}
 
 		iterB = listBulletStandby.erase(iterB);
@@ -118,18 +118,18 @@ void CMonster::OnCollision(CObj* _TargetObj) {
 
 }
 
-void CMonster::Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size) {
+void CMonster::Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, D3DXVECTOR3 _posoffset) {
 	CObj* bulletObj = new CBullet(_degree, _speed, _damage, _size);
-	bulletObj->SetPosition(info->position);
+	bulletObj->SetPosition(info->position + _posoffset);
 	CObjManager::GetInstance()->AddObject(bulletObj, OBJ::MONSTERBULLET);
 }
 
-void CMonster::Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size) {
-	D3DXVECTOR3 v3Dir = *_targetObj->GetPosition() - info->position;
+void CMonster::Shoot(CObj* _targetObj, FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, D3DXVECTOR3 _posoffset) {
+	D3DXVECTOR3 v3Dir = *_targetObj->GetPosition() - info->position ;
 	FLOAT degree = _degree + D3DXToDegree(atan2f(v3Dir.y, v3Dir.x));
 
 	CObj* bulletObj = new CBullet(degree, _speed, _damage, _size);
-	bulletObj->SetPosition(info->position);
+	bulletObj->SetPosition(info->position + _posoffset);
 	CObjManager::GetInstance()->AddObject(bulletObj, OBJ::MONSTERBULLET);
 }
 
