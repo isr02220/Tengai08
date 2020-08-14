@@ -41,5 +41,6 @@ protected:
 	INT  m_ShootDegree = 1;
 	DWORD m_shootDelay = 10;
 	DWORD m_shootDelayCount = 0;
+	BOOL m_ChargeShootReady = false;
 };
 

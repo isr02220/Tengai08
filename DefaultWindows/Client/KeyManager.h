@@ -49,6 +49,17 @@ public:
 			return false;
 	}
 
+	bool KeepPress(DWORD dwKey, DWORD time) {
+		DWORD keyCode = 0;
+		while (dwKey = dwKey >> 1) {
+			keyCode++;
+		}
+		if (m_KeyStack[keyCode] > time)
+			return true;
+		else
+			return false;
+	}
+
 	bool OnRelease(DWORD dwKey) {
 		if (!(m_dwKey & dwKey) && (m_dwKeyEx & dwKey))
 			return true;
@@ -71,6 +82,7 @@ public:
 private:
 	DWORD m_dwKey = 0;
 	DWORD m_dwKeyEx = 0;
+	DWORD m_KeyStack[32] = {};
 	map<KEY::ID, SHORT> keyMap;
 	static CKeyManager* m_pInstance;
 
