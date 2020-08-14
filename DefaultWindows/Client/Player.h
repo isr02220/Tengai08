@@ -18,6 +18,7 @@ public:
 
 	void Input();
 	void Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
+	void ChargeShoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor = RGB(255, 128, 39), COLORREF _strokeColor = RGB(255, 0, 0));
 	void ShootBomb();
 	void UpdateDraw();
 	void Move();
@@ -31,6 +32,8 @@ public:
 	void SetBombEnable() { m_BombEnable = true; }
 
 protected:
+	CObj* petObj = nullptr;
+
 	INT m_BombCount = 3;
 	BOOL m_BombEnable = true;
 	INT m_hp = 3;

@@ -155,6 +155,7 @@
     <ClInclude Include="BombBullet.h" />
     <ClInclude Include="BombUI.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ChargeBullet.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Effect.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="ObjManager.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PatternStruct.h" />
+    <ClInclude Include="Pet.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="Resource.h" />
@@ -188,6 +190,7 @@
     <ClCompile Include="BombBullet.cpp" />
     <ClCompile Include="BombUI.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="ChargeBullet.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Effect.cpp" />
@@ -203,6 +206,7 @@
     <ClCompile Include="ObjManager.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PatternStruct.cpp" />
+    <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Scene.cpp" />

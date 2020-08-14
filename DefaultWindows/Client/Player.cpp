@@ -1,8 +1,10 @@
 #include "framework.h"
 #include "KeyManager.h"
 #include "Player.h"
+#include "Pet.h"
 #include "Bullet.h"
 #include "PlayerBullet.h"
+#include "ChargeBullet.h"
 #include "Bomb.h"
 
 CPlayer::CPlayer() : CObj(){
@@ -20,6 +22,11 @@ void CPlayer::Ready() {
 	info->look = { 1.f, 0.f, 0.f };
 	speed = 10.f;
 	active = false;
+
+	petObj = CAbstractFactory<CPet>::Create(info->position);
+	dynamic_cast<CPet*>(petObj)->SetPlayer(this);
+	CObjManager::GetInstance()->AddObject(petObj, OBJ::PET);
+
 	D3DXVECTOR3 vecLT = info->position - info->size / 2.f;
 	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
 	
@@ -27,7 +34,6 @@ void CPlayer::Ready() {
 	localVertex[1] = { info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[2] = {-info->size.x / 2.f,  info->size.y / 2.f, 0.f };
 	localVertex[3] = {-info->size.x / 2.f, -info->size.y / 2.f, 0.f };
-
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 }
 
@@ -100,11 +106,35 @@ void CPlayer::Input() {
 
 		if (keyMgr->OnRelease(KEY::PrimaryAction)) {
 			if (m_ChargeShootReady) {
-				Shoot(0.f, 10.f, 20, 150, RGB(153, 204, 255), RGB(102, 102, 255));
+				ChargeShoot(0.f, 10.f, 20, 150, RGB(153, 204, 255), RGB(102, 102, 255));
 			}
 		}
+		m_ChargeShootReady = keyMgr->KeepPress(KEY::PrimaryAction, 40);
+		if (keyMgr->KeepPress(KEY::PrimaryAction, 10)) {
+			petObj->SetRotation(-10.f);
 
-		m_ChargeShootReady = keyMgr->KeepPress(KEY::PrimaryAction, 80);
+			if (keyMgr->KeepPress(KEY::PrimaryAction, 20)) {
+				petObj->SetRotation(-20.f);
+				petObj->SetFillColor(RGB(122, 152, 245));
+			}
+			if (keyMgr->KeepPress(KEY::PrimaryAction, 30)) {
+				petObj->SetRotation(-25.f);
+				petObj->SetFillColor(RGB(102, 102, 255));
+				petObj->GetInfo()->size.x = 60;
+				petObj->GetInfo()->size.y = 43;
+			}
+			if (m_ChargeShootReady) {
+				petObj->GetInfo()->size.x = 70;
+				petObj->GetInfo()->size.y = 50;
+				petObj->SetRotation(-30.f);
+			}
+		}
+		else {
+			petObj->SetRotation(0.f);
+			petObj->SetFillColor(RGB(133, 184, 235));
+			petObj->GetInfo()->size.x = 50;
+			petObj->GetInfo()->size.y = 35;
+		}
 		if (keyMgr->OnPress(KEY::SecondaryAction)) {
 			ShootBomb();
 		}
@@ -115,6 +145,14 @@ void CPlayer::Input() {
 
 void CPlayer::Shoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor, COLORREF _strokeColor) {
 	CObj* bulletObj = new CPlayerBullet(_degree, _speed, _damage, _size);
+	bulletObj->SetFillColor(_fillColor);
+	bulletObj->SetStrokeColor(_strokeColor);
+	bulletObj->SetPosition(info->position);
+	CObjManager::GetInstance()->AddObject(bulletObj, OBJ::BULLET);
+}
+
+void CPlayer::ChargeShoot(FLOAT _degree, FLOAT _speed, INT _damage, LONG _size, COLORREF _fillColor, COLORREF _strokeColor) {
+	CObj* bulletObj = new CChargeBullet(_degree, _speed, _damage, _size);
 	bulletObj->SetFillColor(_fillColor);
 	bulletObj->SetStrokeColor(_strokeColor);
 	bulletObj->SetPosition(info->position);

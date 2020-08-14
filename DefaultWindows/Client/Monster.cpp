@@ -19,7 +19,7 @@ void CMonster::Ready() {
 	localVertex[3] = { -info->size.x / 2.f, -info->size.y / 2.f, 0.f };
 
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
-
+	
 	m_StartTime = GetTickCount();
 }
 
@@ -89,6 +89,14 @@ INT CMonster::Update() {
 	D3DXVECTOR3 vecRB = info->position + info->size / 2.f;
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 
+	// Dead
+	if (info->position.x < 0) {
+		if (timer + 1000 < GetTickCount())
+			SetDead();
+	}
+	else {
+		timer = GetTickCount();
+	}
     return STATE::NO_EVENT;
 }
 

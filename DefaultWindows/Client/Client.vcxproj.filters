@@ -70,6 +70,8 @@
     <ClCompile Include="BombBullet.cpp">
       <Filter>01.Obj\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="Pet.cpp" />
+    <ClCompile Include="ChargeBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -146,6 +148,8 @@
     <ClInclude Include="BombBullet.h">
       <Filter>01.Obj\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Pet.h" />
+    <ClInclude Include="ChargeBullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />

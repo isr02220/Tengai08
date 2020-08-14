@@ -42,6 +42,7 @@ public:
 	void SetActive(BOOL _val) { active = _val; };
 	void SetVisible(BOOL _val) { isVisible = _val; };
 	void SetSpeed(FLOAT _speed) { speed = _speed;}
+	void SetRotation(FLOAT _degree) { angleRot = _degree; }
 	void SetFillColor(const COLORREF& _FillColor) { fillColor = _FillColor; }
 	void SetStrokeColor(const COLORREF& _StrokeColor) { strokeColor = _StrokeColor; }
 
