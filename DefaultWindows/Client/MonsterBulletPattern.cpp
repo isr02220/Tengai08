@@ -4,10 +4,8 @@
 
 stBulletPattern mobBList01[] = {
 	// 시작 시간	시작 X위치	시작 Y위치	방향	속도	총알크기	공전	유도여부
-	{ 500,			0,			0,			180.f,	10.f,	10,			0.f,	false },
-	{ 1000,			0,			0,			180.f,	10.f,	10,			0.f,	false },
-	{ 1500,			0,			0,			180.f,	10.f,	10,			0.f,	false },
-	{ 2000,			0,			0,			180.f,	10.f,	10,			0.f,	false },
+	{ 500,			0,			0,			0.f,	10.f,	10,			0.f,	true },
+	{ 1000,			0,			0,			0.f,	10.f,	10,			0.f,	true },
 };
 int mobBList01Size = sizeof(mobBList01) / sizeof(stBulletPattern);
 

@@ -70,6 +70,9 @@
     <ClCompile Include="BombBullet.cpp">
       <Filter>01.Obj\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="EndScene.cpp">
+      <Filter>03.Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="BombBullet.h">
       <Filter>01.Obj\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScene.h">
+      <Filter>03.Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
