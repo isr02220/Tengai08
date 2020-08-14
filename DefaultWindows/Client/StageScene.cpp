@@ -66,8 +66,13 @@ void CStageScene::Update() {
 
 	int iMobStandbyNum = m_listMonsterStandby.size();
 	int iMobObjNum = objMgr->GetList(OBJ::MONSTER)->size();
+
 	if (iMobStandbyNum == 0 && iMobObjNum == 0) {
-		CSceneManager::GetInstance()->ChangeScene(CSceneManager::SCENE_END);
+		if (timer + 2000 < GetTickCount())
+			CSceneManager::GetInstance()->ChangeScene(CSceneManager::SCENE_END);
+	}
+	else {
+		timer = GetTickCount();
 	}
 }
 

@@ -98,15 +98,19 @@ void CPlayer::Input() {
 			m_invincible = false;
 		}
 		if (keyMgr->OnPress(KEY::PrimaryAction)) {
+			m_shootStack = m_level;
+		}
+		if (m_shootStack > 0) {
 			if (m_shootDelayCount == 0) {
 				m_shootDelayCount = m_shootDelay;
+
+				m_shootStack--;
 				Shoot(FLOAT((rand() % m_ShootDegree) - (m_ShootDegree >> 1)), 30.f, 20, 50, RGB(153, 204, 255), RGB(102, 102, 255));
 			}
 		}
-
 		if (keyMgr->OnRelease(KEY::PrimaryAction)) {
 			if (m_ChargeShootReady) {
-				ChargeShoot(0.f, 10.f, 20, 150, RGB(153, 204, 255), RGB(102, 102, 255));
+				ChargeShoot(0.f, 10.f, 5, 150, RGB(153, 204, 255), RGB(102, 102, 255));
 			}
 		}
 		m_ChargeShootReady = keyMgr->KeepPress(KEY::PrimaryAction, 40);

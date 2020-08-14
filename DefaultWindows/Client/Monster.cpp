@@ -90,8 +90,8 @@ INT CMonster::Update() {
 	SetRect(rect, (LONG)vecLT.x, (LONG)vecLT.y, (LONG)vecRB.x, (LONG)vecRB.y);
 
 	// Dead
-	if (info->position.x < 0) {
-		if (timer + 1000 < GetTickCount())
+	if (info->position.x < 0 || info->position.x > WINCX) {
+		if (timer + 2000 < GetTickCount())
 			SetDead();
 	}
 	else {
