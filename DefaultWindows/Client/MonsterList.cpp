@@ -6,13 +6,18 @@
 
 // 반드시 시간 순서대로 정렬되어있어야 함
 stMonsterInfo MobList[] = {
-	// 타입				시작 시간	시작X위치			시작Y위치	아이템			총알패턴목록		갯수					이동패턴목록	갯수
-	{ MONSTER_TYPE_01,	1000,		(float)WINCX,		160.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size }, // UFO부대 시작
-	{ MONSTER_TYPE_01,	1100,		(float)WINCX,		240.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size },
-	{ MONSTER_TYPE_01,	1200,		(float)WINCX,		320.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size },
-	{ MONSTER_TYPE_02,	1300,		(float)WINCX,		400.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size }, // UFO부대 끝
+	// 타입				시작 시간	시작X위치			시작Y위치	아이템			총알패턴목록		갯수					이동패턴목록			갯수
+	{ MONSTER_TYPE_01,	1000,		(float)WINCX,		160.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size }, // UFO부대 시작
+	{ MONSTER_TYPE_01,	1100,		(float)WINCX,		240.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_01,	1200,		(float)WINCX,		320.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_02,	1300,		(float)WINCX,		400.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size }, // UFO부대 끝
 
-	{ MONSTER_TYPE_03,	2000,		1500.f,				0.f,		ITEM_TYPE_NONE,	mobBListHorming1,	mobBListHorming1Size,	mobMList1,		mobMList1Size },
+	{ MONSTER_TYPE_03,	2000,		1500.f,				0.f,		ITEM_TYPE_NONE,	mobBList3,			mobBList3Size,			mobMList1,				mobMList1Size },
+
+	{ MONSTER_TYPE_01,	2500,		(float)WINCX,		360.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_01,	2600,		(float)WINCX,		440.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_01,	2700,		(float)WINCX,		520.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_02,	2800,		(float)WINCX,		600.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
 
 	{ MONSTER_TYPE_05,	3375,		(float)WINCX,		180.f,		ITEM_TYPE_NONE,	mobBList50,			mobBList50Size,			mobMListAngle185,		mobMListAngle185Size },
 	{ MONSTER_TYPE_05,	5708,		(float)WINCX,		450.f,		ITEM_TYPE_NONE,	mobBList50,			mobBList50Size,			mobMListAngle180,		mobMListAngle180Size },
@@ -52,19 +57,19 @@ stMonsterInfo MobList[] = {
 	{ MONSTER_TYPE_05,	13917,		(float)WINCX,		200.f,		ITEM_TYPE_NONE,	mobBList50,			mobBList50Size,			mobMListAngle180,		mobMListAngle180Size },
 	{ MONSTER_TYPE_05,	14167,		(float)WINCX,		600.f,		ITEM_TYPE_NONE,	mobBList50,			mobBList50Size,			mobMListAngle180,		mobMListAngle180Size },
 
-	{ MONSTER_TYPE_01,	14200,		(float)WINCX,		360.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size }, // UFO부대 시작
-	{ MONSTER_TYPE_01,	14300,		(float)WINCX,		440.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size },
-	{ MONSTER_TYPE_01,	14400,		(float)WINCX,		520.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size },
-	{ MONSTER_TYPE_02,	14500,		(float)WINCX,		600.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,		mobMList0Size }, // UFO부대 끝
+	{ MONSTER_TYPE_01,	14200,		(float)WINCX,		360.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size }, // UFO부대 시작
+	{ MONSTER_TYPE_01,	14300,		(float)WINCX,		440.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_01,	14400,		(float)WINCX,		520.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size },
+	{ MONSTER_TYPE_02,	14500,		(float)WINCX,		600.f,		ITEM_TYPE_NONE,	mobBList01,			mobBList01Size,			mobMList0,				mobMList0Size }, // UFO부대 끝
 
 	{ MONSTER_TYPE_07,	15000,		1000.f,				450.f,		ITEM_TYPE_NONE,	mobBListBoss2,		mobBListBoss2Size,		mobMListBoss2,			mobMListBoss2Size },
 	{ MONSTER_TYPE_08,	20000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
 	{ MONSTER_TYPE_08,	20000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList81,				mobMList81Size },
-	{ MONSTER_TYPE_08,	22000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
-	{ MONSTER_TYPE_08,	22000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList81,				mobMList81Size },
+	{ MONSTER_TYPE_08,	22000,		1000.f,				450.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
+	{ MONSTER_TYPE_08,	22000,		1000.f,				450.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList81,				mobMList81Size },
 	{ MONSTER_TYPE_06,	23000,		(float)WINCX,		200.f,		ITEM_TYPE_NONE,	mobBListBoss3,		mobBListBoss3Size,		mobMListAngle180,		mobMListAngle180Size },
-	{ MONSTER_TYPE_08,	24000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
-	{ MONSTER_TYPE_08,	24000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList81,				mobMList81Size },
+	{ MONSTER_TYPE_08,	24000,		1000.f,				300.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
+	{ MONSTER_TYPE_08,	24000,		1000.f,				300.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList81,				mobMList81Size },
 	{ MONSTER_TYPE_08,	26000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
 	{ MONSTER_TYPE_08,	26000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList81,				mobMList81Size },
 	{ MONSTER_TYPE_08,	28000,		1000.f,				400.f,		ITEM_TYPE_NONE,	mobBList8,			mobBList8Size,			mobMList80,				mobMList80Size },
@@ -76,7 +81,7 @@ stMonsterInfo MobList[] = {
 
 	{ MONSTER_TYPE_06,	36000,		(float)WINCX,		700.f,		ITEM_TYPE_NONE,	mobBListBoss3,		mobBListBoss3Size,		mobMListAngle180,		mobMListAngle180Size },
 
-	{ MONSTER_TYPE_09,	36000,		(float)WINCX,		700.f,		ITEM_TYPE_NONE,	mobBListBoss4,		mobBListBoss4Size,		mobMListBoss4,		mobMListBoss4Size },
+	{ MONSTER_TYPE_09,	36000,		(float)WINCX,		450.f,		ITEM_TYPE_NONE,	mobBListBoss4,		mobBListBoss4Size,		mobMListBoss4,		mobMListBoss4Size },
 
 
 };

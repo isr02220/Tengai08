@@ -120,7 +120,8 @@ int mobMListBoss2Size = sizeof(mobMListBoss2) / sizeof(stMovePattern);
 
 stMovePattern mobMListBoss4[] = {
 	// 시작 시간	방향	속도
-	{	0 ,			0.f,	0.f},
+	{	0 ,			180.f,	5.f},
+	{	500, 		180.f,	0.f},
 };
 int mobMListBoss4Size = sizeof(mobMListBoss4) / sizeof(stMovePattern);
 

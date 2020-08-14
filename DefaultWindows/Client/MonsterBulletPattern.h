@@ -3,6 +3,9 @@
 extern stBulletPattern mobBList01[];
 extern int mobBList01Size;
 
+extern stBulletPattern mobBList3[];
+extern int mobBList3Size;
+
 extern stBulletPattern mobBList50[];
 extern int mobBList50Size;
 
